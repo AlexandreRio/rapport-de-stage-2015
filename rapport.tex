@@ -1,0 +1,116 @@
+% Rapport de Stage -- ESIR
+% Alexandre RIO
+% merci à Florent GUIOTTE pour le template de base
+\documentclass[a4paper,12pt,twoside,final]{article}
+
+\usepackage[english,francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{graphicx}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage[french]{varioref}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{wrapfig}
+\usepackage{numprint}
+
+\include{java}
+\include{palette}
+\include{mainvar}
+\include{macro}
+
+\newcommand{\HRule}{{\color{maincolor} \rule{\linewidth}{0.5mm}}}
+\setlength{\parskip}{1ex} % Espace entre les paragraphes
+\titleformat*{\section}{\pagestyle{empty}\sffamily\bfseries\color{maincolor}\LARGE}
+\titleformat*{\subsection}{\sffamily\bfseries\color{subgray}\large}
+\titleformat*{\subsubsection}{\sffamily\bfseries\color{subsubgray}\normalsize}
+\fancyhead[LE]{\reportauthor}
+\fancyhead[CE]{\reporteta}
+\fancyhead[RE]{}
+\fancyhead[LO]{}
+\def\eXit{$\epsilon$\kern-.100em \lower.5ex\hbox{X}\kern-.125em it } 
+
+\makeglossary
+
+\newcommand{\goglo}[1]{{\color{glocolor}\emph{#1}}\glossary{#1}}
+
+\newcommand{\newempty}{
+  \pagestyle{empty}
+  \cleardoublepage
+}
+
+\newcommand{\newpartie}{
+  \pagestyle{empty}
+  \cleardoublepage
+  \pagestyle{fancy}
+}
+
+\newcommand{\newtitle}{
+  \pagestyle{empty}
+  \cleardoublepage
+  \pagestyle{plain}
+}
+
+\newcommand{\voidsheet}{
+    \pagestyle{empty}
+    \cleardoublepage
+    \null
+    \newpage
+    \null
+    \newpage
+}
+
+\hypersetup{
+    pdftitle={\reporttitle},%
+    pdfauthor={\reportauthor},%
+    pdfsubject={\reportsubject},%
+    pdfkeywords=\pdfkw
+}
+
+% **************************
+% * Agencement des parties *
+% **************************
+
+
+\begin{document}
+%\renewcommand\contentsname{Sommaire}
+%\linespread{1.5}
+\pagenumbering{alph}
+  %  \include{title}
+  %  \voidsheet
+    \include{title}
+    \newempty
+    \include{remerciements}
+    \newtitle
+    \pagenumbering{arabic}
+    \tableofcontents
+    \newtitle
+%\setlength{\baselineskip}{1.5\baselineskip}
+    \include{intro}
+    \newpartie
+    \include{partie1}
+    \newpartie
+    \include{partie2}
+%    \newpartie
+%    \include{partie3}
+    \newtitle
+    \include{concl}
+%    \newtitle
+%    \include{resume}
+%    \newtitle
+%    \include{abstract}
+%    \newtitle
+%\setlength{\baselineskip}{1.0\baselineskip}
+%    \include{glo}
+%    \newtitle
+%    \include{biblio}
+%    \newtitle
+%    \listoffigures
+%    \newtitle
+    \include{annexe}
+\end{document}
