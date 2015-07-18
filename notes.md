@@ -65,13 +65,13 @@ Changement de projet, le parser spécifique est très galère. Génération du c
 # Semaine X
 
 ## Jeudi 09
-Réunion informelle avec O. Ridoux pour discuter compilateur et génération de code.
-Structure d'un parser optimisé.
+Réunion informelle avec O. Ridoux pour discuter compilateurs et génération de code ainsi que de la structure d'un parser optimisé.
 
 # Semaine X+1
 
 ## Mercredi 15
 Réunion avec F. Fouquet sur l'avenir de KMF, les changements introduit par la dernière version.
+Lecture de deux papiers non publiés pour le moment.
 
 ## Jeudi 16
 Compilation sans erreur des sources générées (nombreux warnings déjà présents dans la version utilisée venant de cast de pointeur)
@@ -79,7 +79,7 @@ Compilation sans erreur des sources générées (nombreux warnings déjà prése
 Écrire d'un "test" simple de création d'instance, les pointeurs de fonction sont initialisé à la main dans le code généré puisqu'ils ne sont pas générés. La structure actuelle du générateur de code rendrait trop pénible leur ajout et trop difficilement maintenable.
 
 ## Vendredi 17
-Début de refactoring du générateur, idée d'arriver à une meilleur représentation interne, plus proche du langage intermédiaire des compilateurs.
+Début de refactoring du générateur, idée d'arriver à une meilleure représentation interne, plus proche du langage intermédiaire des compilateurs.
 
 
 Et j'ai 15jours de blanc dans mes notes… Il reste plus qu'à aller voir mon historique de commits…
