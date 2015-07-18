@@ -1,4 +1,7 @@
 *.aux
 rapport.toc
+rapport.out
+rapport.synctex.gz
+rapport.pdf
 rapport.log
 rapport_stage.tks
