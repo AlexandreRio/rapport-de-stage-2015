@@ -47,7 +47,7 @@ Pros:
 * Déjà utilisé en cours
 
 Cons:
-* Runtime bien trop lourd (de l'ordre de 300k), sans compter le parser en lui même.
+* Runtime bien trop lourd (de l'ordre de 300kb), sans compter le parser en lui même.
 
 ## Lundi 29
 Essayer de modifier du code généré par Flex et Bison pour Coffee, le FS de Contiki
@@ -61,5 +61,25 @@ idée de partir du json-parser de contiki pour le faire détecter les types d'ob
 
 ## Jeudi 02
 Changement de projet, le parser spécifique est très galère. Génération du code C depuis le méta-modèle. Une première version est déjà faite pour une ancienne version de Kevoree, l'idée est d'automatiser la génération des classes et de la lib (recherche de nœud, visite, comparaison, séréalisation)
+
+# Semaine X
+
+## Jeudi 09
+Réunion informelle avec O. Ridoux pour discuter compilateur et génération de code.
+Structure d'un parser optimisé.
+
+# Semaine X+1
+
+## Mercredi 15
+Réunion avec F. Fouquet sur l'avenir de KMF, les changements introduit par la dernière version.
+
+## Jeudi 16
+Compilation sans erreur des sources générées (nombreux warnings déjà présents dans la version utilisée venant de cast de pointeur)
+
+Écrire d'un "test" simple de création d'instance, les pointeurs de fonction sont initialisé à la main dans le code généré puisqu'ils ne sont pas générés. La structure actuelle du générateur de code rendrait trop pénible leur ajout et trop difficilement maintenable.
+
+## Vendredi 17
+Début de refactoring du générateur, idée d'arriver à une meilleur représentation interne, plus proche du langage intermédiaire des compilateurs.
+
 
 Et j'ai 15jours de blanc dans mes notes… Il reste plus qu'à aller voir mon historique de commits…
