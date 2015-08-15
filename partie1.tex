@@ -23,9 +23,22 @@ Ces nœuds sont également équipés de différents capteurs tels que:
 \item un gyromètre
 \end{itemize}
 
+Ces capteurs sont la source des données extérieures et la raison de déployer des CPS.
+
+\subsection{Réseau de nœuds}
+
+Les réseaux de capteurs ne sont généralement pas mis en réseau comme des ordinateurs classiques, où chaque nœud du réseau peut accéder directement à internet.
+
+Ici le réseau est de type \emph{mesh}, c'est à dire qu'un nœud est connecté à internet, on l'appelle le \emph{border router}, et que les autres sont ou reliés au \emph{border router} ou à un autre nœud indirectement connecté au \emph{border router}.
+
+%schéma d'un réseau mesh
+
+De cette manière pour récupérer du contenu sur internet un nœud peut avoir besoin d'effectuer plusieurs bonds. Également la connexion entre nœuds n'est pas filière mais par ondes radio, réduire au maximum les communications entre nœuds est donc un enjeu de gain de temps puisque les débits de communication sont très faible et de batterie puisque qu'une communication peut impacter tout un réseau dans certains structures.
+
 \subsection{Principales différences}
 
 De par 
+
 limites du système, le débug, le runtime C, le système de fichiers
 
 
