@@ -37,15 +37,26 @@ De cette manière pour récupérer du contenu sur internet un nœud peut avoir b
 
 \subsection{Principales différences}
 
-De par 
+De par ces différences le développement logiciel est radicalement différent de ce que l'on peut trouver lorsque l'on cible un ordinateur «classique».
 
-limites du système, le débug, le runtime C, le système de fichiers
+Dans notre cas ces limites sont dues au langage de développement, le langage C, qui n'est pas compilé pour utiliser la \emph{libc} standard, non disponible sur l'environnement \emph{Contiki}. Cette restriction, entre autre, empêche l'utilisation de générateur de code.
+
+Bien que possible sur un environnement \emph{Contiki} l'allocation dynamique de mémoire ne doit pas se faire en utilisant le classique \emph{malloc}. En effet ce dernier gère mal la fragmentation de la mémoire. Pour palier à cela \emph{Contiki} met à disposition des développeurs d'autres méthodes telles que \emph{memb} et \emph{mmem}.
+
+% ref: https://github.com/contiki-os/contiki/wiki/Memory-allocation
+
+Pour rester proportionné à l'espace disque et à la puissance de calcul des nœuds \emph{Contiki} utilise en système de fichiers spécifique nommé \emph{Coffee}. Ce dernier empêche l'utilisation des fonctions habituelles de gestion d'accès disque telle que \emph{fopen}.
+
+% https://github.com/contiki-os/contiki/wiki/File-systems
+
+
+le débug
 
 
 \section{Testbed iot-lab}
 
 
-intéret du testbed
+intérêt du testbed
 
 limites du testbed
 
