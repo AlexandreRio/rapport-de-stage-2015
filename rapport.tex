@@ -12,6 +12,7 @@
 \usepackage[french]{varioref}
 \usepackage{fancyhdr}
 \usepackage{lmodern}
+\usepackage{natbib}
 \usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage{listings}
@@ -34,6 +35,7 @@
 \fancyhead[RE]{}
 \fancyhead[LO]{}
 \def\eXit{$\epsilon$\kern-.100em \lower.5ex\hbox{X}\kern-.125em it } 
+\setlength{\headheight}{15pt}
 
 \makeglossary
 
@@ -69,7 +71,7 @@
     pdftitle={\reporttitle},%
     pdfauthor={\reportauthor},%
     pdfsubject={\reportsubject},%
-    pdfkeywords=\pdfkw
+    pdfkeywords={\pdfkw}
 }
 
 % **************************
@@ -104,7 +106,11 @@
 %\setlength{\baselineskip}{1.0\baselineskip}
 %    \include{glo}
 %    \newtitle
-    \include{biblio}
+	\bibliographystyle{mla}
+	\bibliography{rapport}
+	
+	\bibliography{references}
+    %\include{biblio}
 %    \newtitle
 %    \listoffigures
 %    \newtitle
