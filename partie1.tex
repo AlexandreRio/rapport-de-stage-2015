@@ -41,13 +41,9 @@ De par ces différences le développement logiciel est radicalement différent d
 
 Dans notre cas ces limites sont dues au langage de développement, le langage C, qui n'est pas compilé pour utiliser la \emph{libc} standard, non disponible sur l'environnement \emph{Contiki}. Cette restriction, entre autre, empêche l'utilisation de générateur de code.
 
-Bien que possible sur un environnement \emph{Contiki} l'allocation dynamique de mémoire ne doit pas se faire en utilisant le classique \emph{malloc}. En effet ce dernier gère mal la fragmentation de la mémoire. Pour palier à cela \emph{Contiki} met à disposition des développeurs d'autres méthodes telles que \emph{memb} et \emph{mmem}.
+Bien que possible sur un environnement \emph{Contiki} l'allocation dynamique de mémoire ne doit pas se faire en utilisant le classique \emph{malloc}. En effet ce dernier gère mal la fragmentation de la mémoire. Pour palier à cela \emph{Contiki} met à disposition des développeurs d'autres méthodes telles que \emph{memb} et \emph{mmem}.\footnote{https://github.com/contiki-os/contiki/wiki/Memory-allocation}
 
-% ref: https://github.com/contiki-os/contiki/wiki/Memory-allocation
-
-Pour rester proportionné à l'espace disque et à la puissance de calcul des nœuds \emph{Contiki} utilise en système de fichiers spécifique nommé \emph{Coffee} qui est une  implémentation du \emph{Contiki File System}, CFS. Ce dernier empêche l'utilisation des fonctions habituelles de gestion d'accès disque telle que \emph{fopen}.
-
-% https://github.com/contiki-os/contiki/wiki/File-systems
+Pour rester proportionné à l'espace disque et à la puissance de calcul des nœuds \emph{Contiki} utilise en système de fichiers spécifique nommé \emph{Coffee} qui est une  implémentation du \emph{Contiki File System}\footnote{https://github.com/contiki-os/contiki/wiki/File-systems}, CFS. Ce dernier empêche l'utilisation des fonctions habituelles de gestion d'accès disque telle que \emph{fopen}.
 
 
 \section{Testbed iot-lab}
