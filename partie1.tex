@@ -46,12 +46,19 @@ Bien que possible sur un environnement \emph{Contiki} l'allocation dynamique de 
 Pour rester proportionné à l'espace disque et à la puissance de calcul des nœuds \emph{Contiki} utilise en système de fichiers spécifique nommé \emph{Coffee} qui est une  implémentation du \emph{Contiki File System}\footnote{https://github.com/contiki-os/contiki/wiki/File-systems}, CFS. Ce dernier empêche l'utilisation des fonctions habituelles de gestion d'accès disque telle que \emph{fopen}.
 
 
-\section{Testbed iot-lab}
+\section{Testbed FIT IoT-lab}
 
+FIT est un projet financé par divers organismes de l'enseignement supérieurs et de la recherche afin de mettre à disposition des entreprises et des chercheurs des structures pour les aider dans leurs travaux.
 
-intérêt du testbed
+IoT-lab\footnote{https://www.iot-lab.info/} est une infrastructure permettant l'accès à différents sites en France hébergeant du matériel dédié à l'Internet des Objets.
 
-utilisation du testbed (flash de firmware)
+FIT permet l'accès à plus de 2700 nœuds répartis sur 7 différents testbed tel qu'à Rennes, Grenoble ou Rocquencourt. Les testbeds proposent jusqu'à 3 architectures différentes, dont des \emph{m3}.
+
+%citer cette page en annexe https://www.iot-lab.info/deployment/
+
+La réservation de nœuds se fait directement sur le site web. L'utilisateur a libre choix sur le site, le nombre et le type de nœud. Dans la limite des ressources disponibles et pour une durée conseillée d'au maximum 2 heures.
+
+Une fois des nœuds réservés et obtenus il est possible d'y déployer un nouveau firmware. Toutes ces opérations, de la réservation de nœuds au flashage d'un nouveau firmware, sont directement réalisable en ligne de commande\footnote{https://www.iot-lab.info/tutorials/experiment-cli-client/}.
 
 \section{model@runtime, Kevoree et KMF}
 
