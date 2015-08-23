@@ -1,9 +1,17 @@
 \section*{Annexes} % Pas de numérotation
 \addcontentsline{toc}{section}{Annexes}
 \appendix
+\renewcommand\thefigure{\thesection.\arabic{figure}}
+\setcounter{figure}{0}
 \setcounter{section}{1}
 %\setcounter{subsection}{1}
 
-\subsection{}
-\label{pdf_nas}
 
+\subsection{\label{iot-lab}Distribution des nœuds FIT iot-lab}
+
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.6]{images/iot-lab.png}
+\caption{Source: https://www.iot-lab.info/deployment/}
+\end{figure}
