@@ -1,5 +1,7 @@
 *.aux
 rapport.toc
+rapport.bbl
+rapport.blg
 rapport.out
 rapport.synctex.gz
 rapport.pdf
