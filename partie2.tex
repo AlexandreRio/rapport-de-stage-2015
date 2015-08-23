@@ -1,16 +1,23 @@
 \setcounter{section}{0}
-\section{Compression des modeles}
+\section{Premier développement sur Contiki}
+Pour mieux appréhender la variété de l'environnement et des outils la première tâche qui m'a été confiée n'était pas au cœur de ses systèmes. J'ai tout d'abord lu l'article \citep{acostapadilla} pour me familiariser avec cet environnement. 
 
-Pour mieux appréhender la variété de l'environnement et des outils la première tâche qui m'a été confiée n'était pas réellement au cœur de ses systèmes. J'ai d'abord lu l'article \cite{acostapadilla}
+Les nœuds \emph{m3} étant uniquement capable d'exécuter du code déjà compilé il a fallu que je mette en place un environnement dit de \emph{Cross-compilation}, ou compilation croisée, qui consiste à produire un code binaire exécutable par une machine ayant une architecture différente de celle servant au développement.
 
+Pour développer un nouveau module pour \emph{Contiki} il suffit d'en récupérer les sources\footnote{https://github.com/iot-lab/contiki}, de se placer dans le répertoire contenant les sources d'un module et de le compiler en précisant l'architecture cible, iotlab-m3.
+
+\lstset{language=bash, captionpos=b, caption=Résumé des étapes de compilation}
+\begin{lstlisting}[frame=single]
+git clone https://github.com/iot-lab/contiki
+cd contiki/example/hello-world
+make TARGET=iotlab-m3
+\end{lstlisting}
+
+Cette compilation produira un firmware contenant \emph{Contiki}, le module courant ainsi que tout autre module marqué en dépendance. Ce firmware pourra directement être flashé sur un nœud \emph{m3}.
+
+\section{Compression des modèles}
 
 Pour pouvoir s'adapter et selon le principe du \emph{model@runtime} chaque nœud d'un réseau IoT doit comparer le nouveau modèle du réseau avec le courant et en déduire s'il doit se modifier. Il est donc nécessaire que le nouveau modèle soit échangé entre tous les nœuds. Dans un soucis de temps de développement et puisque cela n'impacte pas l'idée de \emph{model@runtime} l'implémentation de \emph{kevoree-c} ne compresse pas les modèles avant de les transmettre aux pairs voisins.
-
-\subsection{Premier développement sur Contiki}
-
-Mettre un place le compilateur
-
-le plus simple est de compiler à côté du système et produire un binaire pour m3
 
 \subsection{État de l'art sur PC}
 
