@@ -21,7 +21,7 @@ Ces nœuds sont également équipés de différents capteurs tels que:
 \item un gyromètre
 \end{itemize}
 
-\begin{figure}[ht!]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=90mm]{images/m3opennode.png}
 \caption{Vue détaillée d'un nœud M3}
@@ -35,6 +35,11 @@ Les réseaux de capteurs ne sont généralement pas mis en réseau comme des ord
 
 Ici le réseau est de type \emph{mesh}, c'est à dire qu'un nœud est connecté à internet, on l'appelle le \emph{border router}, et que les autres sont ou reliés au \emph{border router} ou à un autre nœud indirectement connecté au \emph{border router}.
 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{images/mesh-network.png}
+\caption{Topologie d'un réseau mesh, le border routeur peut potentiellement être n'importe lequel de ces nœuds}
+\end{figure}
 %schéma d'un réseau mesh
 
 De cette manière pour récupérer du contenu sur internet un nœud peut avoir besoin d'effectuer plusieurs bonds. Également la connexion entre nœuds n'est pas filière mais par ondes radio, réduire au maximum les communications entre nœuds est donc un enjeu de gain de temps puisque les débits de communication sont très faible et de batterie puisque qu'une communication peut impacter tout un réseau dans certains structures.
@@ -58,7 +63,7 @@ IoT-lab\footnote{https://www.iot-lab.info/} est une infrastructure permettant l'
 
 FIT permet l'accès à plus de 2700 nœuds répartis sur 7 différents testbed tel qu'à Rennes, Grenoble ou Rocquencourt. Les testbeds proposent jusqu'à 3 architectures différentes, dont des \emph{m3}.
 
-%citer cette page en annexe https://www.iot-lab.info/deployment/
+Voir annexe \ref{iot-lab} pour la distribution détaillée des différents nœuds.
 
 La réservation de nœuds se fait directement sur le site web. L'utilisateur a libre choix sur le site, le nombre et le type de nœud. Dans la limite des ressources disponibles et pour une durée conseillée d'au maximum 2 heures.
 
