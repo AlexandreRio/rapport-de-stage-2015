@@ -3,16 +3,16 @@
 % merci à Florent GUIOTTE pour le template de base
 \documentclass[a4paper,12pt,twoside,final]{article}
 
-\usepackage[english,francais]{babel}
+\usepackage[english,french]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[pdftex]{graphicx}
 \usepackage{setspace}
 \usepackage{hyperref}
-\usepackage[french]{varioref}
+%\usepackage[french]{varioref}
 \usepackage{fancyhdr}
 \usepackage{lmodern}
-\usepackage[numbers]{natbib}
+\usepackage[numbers,comma]{natbib}
 \usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage{listings}
@@ -21,6 +21,7 @@
 %\usepackage{wrapfig}
 \usepackage{numprint}
 \usepackage{listings}
+\shorthandoff{:} % for bibtex
 
 \include{java}
 \include{palette}
@@ -115,4 +116,5 @@
 %    \listoffigures
 %    \newtitle
     \include{annexe}
+    \include{abstract}
 \end{document}

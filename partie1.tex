@@ -40,7 +40,6 @@ Ici le réseau est de type \emph{mesh}, c'est à dire qu'un nœud est connecté 
 \includegraphics[scale=0.3]{images/mesh-network.png}
 \caption{Topologie d'un réseau mesh, le border routeur peut potentiellement être n'importe lequel de ces nœuds}
 \end{figure}
-%schéma d'un réseau mesh
 
 De cette manière pour récupérer du contenu sur internet un nœud peut avoir besoin d'effectuer plusieurs bonds. Également la connexion entre nœuds n'est pas filière mais par ondes radio, réduire au maximum les communications entre nœuds est donc un enjeu de gain de temps puisque les débits de communication sont très faible et de batterie puisque qu'une communication peut impacter tout un réseau dans certains structures.
 
@@ -76,8 +75,8 @@ Une fois des nœuds réservés et obtenus il est possible d'y déployer un nouve
 Le développement de réseaux distribués de machines de plus en plus complexes a amené la volonté et le besoin de pouvoir les reconfigurer plus aisément. L'intérêt peut être de mettre à jour un module fonctionnant sur une machine tout en minimisant le temps durant lequel le module ne sera pas fonctionnel.
 
 Pour cela le paradigme du \emph{model@runtime} utilise un modèle servant à définir l'architecture détaillée d'un réseau à un instant \emph{t}.
- 
-%citer le papier de François en biblio
+
+Cette aproche fonctionne sur des réseaux d'ordinateurs et de serveurs \cite{fouquet} et l'objectif de la thèse de \paco est de prouver que cette approche fonctionne également pour l'Internet des Objets.
 
 \subsection{KMF}
 
@@ -93,7 +92,7 @@ L'objectif de \emph{KMF} est de, à partir d'un méta-modèle, produire une stru
 
 \subsubsection{Kevoree-c}
 
-La version utilisée durant ce stage est \emph{kevoree-c}\footnote{https://github.com/kYc0o/kevoree-c-reloaded} réalisée par Francisco Javier Acosta Padilla dans le cadre de sa thèse. Contrairement aux autres versions de \emph{Kevoree} celle-ci n'a pas été obtenue par génération depuis un méta-modèle mais a été écrite à la main.
+La version utilisée durant ce stage est \emph{kevoree-c}\footnote{https://github.com/kYc0o/kevoree-c-reloaded} réalisée par \paco dans le cadre de sa thèse. Contrairement aux autres versions de \emph{Kevoree} celle-ci n'a pas été obtenue par génération depuis un méta-modèle mais a été écrite à la main.
 
 
 %les différentes versions
