@@ -29,9 +29,9 @@ Les implémentations retenues et étudiées sont \emph{Huffman}, \emph{fastlz}\f
 
 Les résultats ont été obtenus en utilisant l'outil \emph{Massif}\footnote{http://valgrind.org/docs/manual/ms-manual.html} de la suite d'outils Valgrind. \emph{Massif} permet de mesurer l'utilisation de différentes zones mémoire lors de l'exécution d'un programme. Par défaut seul l'utilisation du tas est mesuré mais la pile peut également l'être après configuration. Les fichiers de données produits sont binaires mais peuvent être visualisés à l'aide de l'outil \emph{msprint} fourni avec \emph{Massif}.
 
-Les mesures étant faites sur un ordinateur classique d'architecture 64bit et non sur l'environnement de production la compilation a été réalisée en 32bit pour réduire la taille des adresses de pointeur manipulées et ainsi avoir des résultats plus fiables.
+Les mesures étant faites sur un ordinateur classique d'architecture 64bit et non sur l'environnement de production la compilation a été réalisée en 32bit pour réduire la taille des adresses de pointeur manipulées et ainsi avoir des résultats plus fiables. Tous les algorithmes ont été utilisés en compression et en décompression sur plusieurs modèles différents représentatifs de ceux utilisés lors des expériences.
 
-
+Les scripts utilisés pour automatiser les mesures et produire les résultats suivants sont disponibles sur Github\footnote{https://github.com/AlexandreRio/embedded-compression-benchmark}.
 
 % Peut être mettre l'image en annexe
 \begin{figure}[ht!]
@@ -40,31 +40,34 @@ Les mesures étant faites sur un ordinateur classique d'architecture 64bit et no
 \caption{Exemple d'extrait de sortie de Massif, ici l'utilisation maximum de RAM est au snapshot 45 et est d'environ 400KB}
 \end{figure}
 
+\subsection{Résultats mesurés}
 
 % Compilation des résultats en bar plot
 
-\subsection{Tentatives de portage}
-
-trop de limite, 
+En réduisant la taille des buffers la taux de compression chute
 
 \subsection{Table d'association}
 
-Re blabla sur les limites du systèms
+Vue qu'aucune implémentation existante ne peut fonctionner sur \emph{Contiki} j'ai développé un programme de compression.
 
-les différentes approches envisagées 
+La structure générale et les mots-clés du fichier à compresser étant connus à l'avance la méthode la plus simple de compression est de réaliser une table d'association entre les mots les plus fréquemment utilisés et de les substituer par un code plus court.
 
-le tableau comparatif des implém existantes
-Juste un graphe des ratios et des utilisations de ressources
-En annexe le détail des résultats mesurés.
+Cette approche oblige tous les nœuds à connaitre la table d'association utilisée pour compresser lors de la décompression. Cette table étant constante lors de la vie du programme elle peut être stockée en ROM, ce qui est important dans notre cas.
 
+Pour obtenir cette table d'association j'ai réalisé un programme \emph{Java}, disponible sur Github\footnote{https://github.com/AlexandreRio/Contiki-compression-tools}, qui se base sur un ensemble de modèle. Le programme peut être paramétré pour produire une table plus au moins grosse, au détrimant du taux de compression moyen.
 
-La méthode retenue,
+Les premiesrs tests sur \emph{Contiki} ont d'abord consisté à simplement compressé une   chaine de caractères constante au programme, puis un fichier local au nœud et pour finir un fichier local au nœud envoyé à un second nœud qui le décompresse après réception. Le résultat attendu étant que le fichier obtenu après compression, transmission et décompression soit identique ou au moins sémantiquement identique.
 
-le package contiki crée
+Après avoir résolu les différents bugs liés à l'environnement, tel que le système de fichier, le code du programme de compression a déplacer afin de produire un module indépendant dans \emph{Contiki}. De ce fait n'importe quel autre module ou programme basé sur \emph{Contiki} peut utiliser cette fonction pour compresser ou décompresser des fichiers.
 
+% vérifier les liens
+Les sources de la version de compression seule \footnote{https://github.com/AlexandreRio/contiki/tree/usingOldKevoree/examples/compress} et de la compression et transmission \footnote{https://github.com/AlexandreRio/contiki/tree/usingOldKevoree/examples/compress-disseminate} sont disponibles sur Github.
 
 \section{Parser spécifique}
 
+\subsection{Tentatives de portage}
+
+trop de limite,
 \section{Compilation}
 
 Le gros du stage pour le moment
