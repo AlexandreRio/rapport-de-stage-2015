@@ -21,7 +21,7 @@ Pour pouvoir s'adapter et selon le principe du \emph{model@runtime} chaque nœud
 
 \subsection{État de l'art}
 
-Puisque aucun algorithme de compression de données n'est fourni avec \emph{Contiki} j'ai d'abord commencé par en chercher implémentés en \emph{C}, recommendés pour les systèmes embarqués et disponibles en sources libres dans des licences permettant leurs réutilisations.
+Puisque aucun algorithme de compression de données n'est fourni avec \emph{Contiki} j'ai d'abord commencé par en chercher implémentés en \emph{C}, recommandés pour les systèmes embarqués et disponibles en sources libres dans des licences permettant leurs réutilisations.
 
 L'objectif étant d'avoir le meilleur taux de compression tout en restant le moins demandeur de ressources matérielles, en particulier en mémoire RAM.
 
@@ -54,9 +54,9 @@ La structure générale et les mots-clés du fichier à compresser étant connus
 
 Cette approche oblige tous les nœuds à connaitre la table d'association utilisée pour compresser lors de la décompression. Cette table étant constante lors de la vie du programme elle peut être stockée en ROM, ce qui est important dans notre cas.
 
-Pour obtenir cette table d'association j'ai réalisé un programme \emph{Java}, disponible sur Github\footnote{https://github.com/AlexandreRio/Contiki-compression-tools}, qui se base sur un ensemble de modèle. Le programme peut être paramétré pour produire une table plus au moins grosse, au détrimant du taux de compression moyen.
+Pour obtenir cette table d'association j'ai réalisé un programme \emph{Java}, disponible sur Github\footnote{https://github.com/AlexandreRio/Contiki-compression-tools}, qui se base sur un ensemble de modèle. Le programme peut être paramétré pour produire une table plus au moins grosse, au détriment du taux de compression moyen.
 
-Les premiesrs tests sur \emph{Contiki} ont d'abord consisté à simplement compressé une   chaine de caractères constante au programme, puis un fichier local au nœud et pour finir un fichier local au nœud envoyé à un second nœud qui le décompresse après réception. Le résultat attendu étant que le fichier obtenu après compression, transmission et décompression soit identique ou au moins sémantiquement identique.
+Les premiers tests sur \emph{Contiki} ont d'abord consisté à simplement compressé une   chaine de caractères constante au programme, puis un fichier local au nœud et pour finir un fichier local au nœud envoyé à un second nœud qui le décompresse après réception. Le résultat attendu étant que le fichier obtenu après compression, transmission et décompression soit identique ou au moins sémantiquement identique.
 
 Après avoir résolu les différents bugs liés à l'environnement, tel que le système de fichier, le code du programme de compression a déplacer afin de produire un module indépendant dans \emph{Contiki}. De ce fait n'importe quel autre module ou programme basé sur \emph{Contiki} peut utiliser cette fonction pour compresser ou décompresser des fichiers.
 
