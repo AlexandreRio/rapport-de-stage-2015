@@ -60,10 +60,18 @@ Les premiers tests sur \emph{Contiki} ont d'abord consisté à simplement compre
 
 Après avoir résolu les différents bugs liés à l'environnement, tel que le système de fichier, le code du programme de compression a déplacer afin de produire un module indépendant dans \emph{Contiki}. De ce fait n'importe quel autre module ou programme basé sur \emph{Contiki} peut utiliser cette fonction pour compresser ou décompresser des fichiers.
 
+\subsection{Résultats obtenus}
+
+Table des taux de compression moyen mesurés et utilisation de la RAM mesuré avec valgrind massif
+
 % vérifier les liens
 Les sources de la version de compression seule \footnote{https://github.com/AlexandreRio/contiki/tree/usingOldKevoree/examples/compress} et de la compression et transmission \footnote{https://github.com/AlexandreRio/contiki/tree/usingOldKevoree/examples/compress-disseminate} sont disponibles sur Github.
 
 \section{Parser spécifique}
+
+Un des points crucial de \emph{Kevoree-c} est la possibilité de reconstruire un état mémoire depuis un fichier représentant un modèle. Cette phase de dé-serialisation repose sur une partie critique du programme. En effet la version actuelle utilisée pour les expériences, en plus de ne fonctionner qu'avec une version fixe de \emph{KMF}, a été réalisée dans des contraintes de temps forte et ne reconnait qu'une partie minimale du méta-modèle. Le code produit ne suivant pas le patron de conception et les raisons énoncées le rendent difficilement maintenable.
+
+Pour palier à ces défauts
 
 \subsection{Tentatives de portage}
 
