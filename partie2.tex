@@ -35,15 +35,17 @@ Les scripts utilisés pour automatiser les mesures et produire les résultats su
 
 \subsection{Résultats mesurés}
 
-Taux de compression $\frac{taille~finale}{taille~initiale}$ moyens mesurés sur un ensemble de fichier 14 fichiers représentant 7 modèles différents. Chaque modèle est représenté par un fichier facilement lisible par l'Homme et par une représentation minimaliste, sans caractère de mise en forme superflu.
-
-\begin{itemize}
-\item LZF : $0.174$
-\item Huffman : $0.604$
-\item Fastlz-1 : $0.179$
-\item Fastlz-2 : $0.171$
-\item Table association : $0.641$
-\end{itemize}
+Le taux de compression $\frac{taille~finale}{taille~initiale}$ moyens de chaque algorithme est mesuré sur un ensemble de fichier 14 fichiers représentant 7 modèles différents. Chaque modèle est représenté par un fichier facilement lisible par l'Homme et par une représentation minimaliste, sans caractère de mise en forme superflu.
+\[
+\begin{array}{lc}
+Algorithme & Taux~de~compression \\
+LZF & 0.174 \\
+Huffman & 0.604 \\
+Fastlz-1 & 0.179 \\
+Fastlz-2 & 0.171 \\
+Table~association & 0.641
+\end{array}
+\]
 
 L'annexe \ref{comp-tabde} détaille les tailles avant et après compression pour l'ensemble de ces fichiers.
 
@@ -61,7 +63,7 @@ Vue qu'aucune implémentation existante ne peut fonctionner sur \emph{Contiki} j
 
 La structure générale et les mots-clés du fichier à compresser étant connus à l'avance la méthode la plus simple de compression est de réaliser une table d'association entre les mots les plus fréquemment utilisés et de les substituer par un code plus court.
 
-Cette approche oblige tous les nœuds à connaitre la table d'association utilisée pour compresser lors de la décompression. Cette table étant constante lors de la vie du programme elle peut être stockée en ROM, ce qui est important dans notre cas.
+Cette approche oblige tous les nœuds à connaître la table d'association utilisée pour compresser lors de la décompression. Cette table étant constante lors de la vie du programme elle peut être stockée en ROM, ce qui est important dans notre cas.
 
 Pour obtenir cette table d'association j'ai réalisé un programme \emph{Java}, disponible sur Github\footnote{https://github.com/AlexandreRio/Contiki-compression-tools}, qui se base sur un ensemble de modèle. Le programme peut être paramétré pour produire une table plus au moins grosse, au détriment du taux de compression moyen.
 
