@@ -33,24 +33,25 @@ Les mesures étant faites sur un ordinateur classique d'architecture 64bit et no
 
 Les scripts utilisés pour automatiser les mesures et produire les résultats suivants sont disponibles sur Github\footnote{https://github.com/AlexandreRio/embedded-compression-benchmark}.
 
-% Peut être mettre l'image en annexe
-\begin{figure}[ht!]
-\centering
-\includegraphics[scale=0.7]{images/msprint.png}
-\caption{Exemple d'extrait de sortie de Massif, ici l'utilisation maximum de RAM est au snapshot 45 et est d'environ 400KB}
-\end{figure}
-
 \subsection{Résultats mesurés}
+
+Taux de compression $\frac{taille~finale}{taille~initiale}$ moyens mesurés sur un ensemble de fichier 14 fichiers représentant 7 modèles différents. Chaque modèle est représenté par un fichier facilement lisible par l'Homme et par une représentation minimaliste, sans caractère de mise en forme superflu.
+
+\begin{itemize}
+\item LZF : $0.174$
+\item Huffman : $0.604$
+\item Fastlz-1 : $0.179$
+\item Fastlz-2 : $0.171$
+\item Table association : $0.641$
+\end{itemize}
+
+L'annexe \ref{comp-tabde} détaille les tailles avant et après compression pour l'ensemble de ces fichiers.
 
 \begin{figure}[ht!]
 \centering
 \includegraphics[scale=0.4]{images/comp-memory.png}
 \caption{Pic moyen d'utilisation de la RAM en octet en fonction de l'algorithme de compression.}
 \end{figure}
-
-% Compilation des résultats en bar plot
-
-
 
 En réduisant la taille des buffers la taux de compression chute
 
