@@ -1,0 +1,6 @@
+Algorithm,compress,decompress
+LZF,397868,135864
+Huffman,80088,13800
+Fastlz-1,460504,139128
+Fastlz-2,396096,137768
+Association table,3000,3000
