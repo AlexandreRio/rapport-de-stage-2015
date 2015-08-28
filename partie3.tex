@@ -22,17 +22,38 @@ Pour vite avoir une idée du coût mémoire d'Antlr j'ai utilisé une simple gra
 Malheureusement même avec une grammaire reconnaissant uniquement un fichier \emph{JSON} et n'effectuant aucune action le coût mémoire est trop important. Sans compter le poids du parser généré l'ensemble des fichiers à inclure pour le faire fonctionner pèse déjà plus de $400Kb$.
 
 \subsection{Flex et Bison}
+Quand on parle de générateur de parser on pense très souvent à \emph{Flex}\cite{flex}, pour l'analyse lexicale et à \emph{Bison}\cite{bison} pour l'analyse syntaxique
 
-\subsection{}
+Ensemble ils peuvent produire du code \emph{C} de taille cette fois bien plus raisonnable. En suivant la même démarche que pour AntlrV3 j'ai d'abord créé un parser pour uniquement reconnaître la syntaxe JSON.
 
-\subsection{Tentatives de portage}
+% limites du runtime C
 
-trop de limite,
+\subsection{Solution sur mesure}
+
+% problèmes de mémoires
 
 \section{Compilation}
 
-Le gros du stage pour le moment
+\subsection{L'intérêt du générateur du code}
 
-\subsection{L'intérêt de générer du code}
+\subsection{Une structure de compilateur}
 
-\subsection{Un vrai compilateur et pas juste une transcription de modèle}
+\cite{freeman2004head} \cite{Appel2003MCI599718}
+
+\subsection{Générer une structure de données}
+
+Les choix techniques
+
+Diagramme UML simplifié, en annexe peut être le complet de Kevoree, risque d'être dur à passer en format A4
+
+\subsection{Générer les outils de manipulation}
+
+serialization, dé-serialization
+
+\subsection{Limites et avenir}
+
+Confiance dans le compilateur, les quelques cas ad-hoc
+
+
+
+
