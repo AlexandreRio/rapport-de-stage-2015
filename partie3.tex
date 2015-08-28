@@ -1,0 +1,27 @@
+\section{Parser spécifique}
+
+Un des points crucial de \emph{Kevoree-c} est la possibilité de reconstruire un état mémoire depuis un fichier représentant un modèle. Cette phase de dé-serialisation repose sur une partie critique du programme. En effet la version actuelle utilisée pour les expériences, en plus de ne fonctionner qu'avec une version fixe de \emph{KMF}, a été réalisée dans des contraintes de temps forte et ne reconnait qu'une partie minimale du méta-modèle. Le code produit ne suivant pas le patron de conception et les raisons énoncées le rendent difficilement maintenable.
+
+Pour palier à ces défauts et mieux comprendre les mécanismes internes de \emph{Kevoree-c} j'ai donc commencé à étudier les possibilités de ré-écriture du dé-serializer.
+
+Il devait répondre aux contraintes suivantes:
+
+\begin{itemize}
+\item avoir une faible empreinte mémoire RAM,
+\item avoir le moins de traitement ad-hoc à la structure de données,
+\item être facile à relire et modifier
+\end{itemize}
+
+Mon premier réflexe a été d'utiliser un générateur de parser, de cette manière seule la grammaire aurait été à écrire, le parser en \emph{C} aurait été généré par l'outil. 
+
+
+\subsection{Tentatives de portage}
+
+trop de limite,
+\section{Compilation}
+
+Le gros du stage pour le moment
+
+\subsection{L'intérêt de générer du code}
+
+\subsection{Un vrai compilateur et pas juste une transcription de modèle}
