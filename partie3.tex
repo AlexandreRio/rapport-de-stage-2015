@@ -34,14 +34,20 @@ Le parser lit son fichier d'entrée à l'aide des méthodes \emph{fopen} et \emp
 
 \subsubsection{Portage et tableaux}
 
-Réutiliser des parties du code généré c'est également avéré être une tâche impossible.
+Réutiliser des parties du code généré c'est également avéré être une tâche impossible, pour les mêmes raisons que précédemment. En écrivant une lecture du disque propre à \emph{Contiki} et en utilisant le code du traitement produit par \emph{Flex} et \emph{Bison} on obtient un programme que l'on peut compiler mais qui produit une erreur au moment de l'édition des liens due à une incompatibilité dans la \emph{libc} de \emph{Contiki}
 
-% limites du runtime C
+Le traitement de ce genre étant trop chronophage j'ai décidé de ne pas utiliser d'outils de générations de code.
 
 \subsection{Solution sur mesure}
 
-% problèmes de mémoires
+J'ai donc tenté d'écrire un lexer et un parser prenant en entrée un fichier JSON et créant les instances \emph{C} correspondant.
 
+En manipulant les instances en question, comment sont stockés les attributs, où se situe le code des méthodes, comment se passe l'appel des méthodes et à force d'utiliser \emph{Contiki} j'ai pu commencer à être à l'aise avec cet environnement, ce qui était l'objectif de cette tâche et non la réalisation d'un parser spécifique.
+
+%fusionner une partie avec le paragraphe précédent
+Les nombreux problèmes de mémoire rencontrés dus à l'allocation dynamique particulier de \emph{Contiki} ont fait que la tâche à été abandonné puisqu'à parser générique doit être écrit dans la suite du stage.
+
+%peut-être une nouvelle partie
 \section{Compilation}
 
 \subsection{L'intérêt du générateur du code}
