@@ -1,6 +1,7 @@
-\section{Parser spécifique}
+\section{\label{parser-spécif}Parser spécifique}
 
-Un des points crucial de \emph{Kevoree-c} est la possibilité de reconstruire un état mémoire depuis un fichier représentant un modèle. Cette phase de dé-serialisation repose sur une partie critique du programme. En effet la version actuelle utilisée pour les expériences, en plus de ne fonctionner qu'avec une version fixe de \emph{KMF}, a été réalisée dans des contraintes de temps forte et ne reconnait qu'une partie minimale du méta-modèle. Le code produit ne suivant pas le patron de conception et les raisons énoncées le rendent difficilement maintenable.
+Un des points crucial de \emph{Kevoree-c} est la possibilité de reconstruire un état mémoire depuis un fichier représentant un modèle. Cette phase de dé-serialisation repose sur une partie critique du programme. En effet la version actuelle utilisée pour les expériences, en plus de ne fonctionner qu'avec une version fixe de \emph{KMF}, a été réalisée dans des contraintes de temps forte et ne reconnaît qu'une partie minimale du méta-modèle.
+Le code produit ne suivant pas le patron de conception et pour les raisons énoncées le code source est difficilement maintenable.
 
 Pour palier à ces défauts et mieux comprendre les mécanismes internes de \emph{Kevoree-c} j'ai donc commencé à étudier les possibilités de ré-écriture du dé-serializer.
 
@@ -45,12 +46,33 @@ J'ai donc tenté d'écrire un lexer et un parser prenant en entrée un fichier J
 En manipulant les instances en question, comment sont stockés les attributs, où se situe le code des méthodes, comment se passe l'appel des méthodes et à force d'utiliser \emph{Contiki} j'ai pu commencer à être à l'aise avec cet environnement, ce qui était l'objectif de cette tâche et non la réalisation d'un parser spécifique.
 
 %fusionner une partie avec le paragraphe précédent
-Les nombreux problèmes de mémoire rencontrés dus à l'allocation dynamique particulier de \emph{Contiki} ont fait que la tâche à été abandonné puisqu'à parser générique doit être écrit dans la suite du stage.
+Les nombreux problèmes de mémoire rencontrés dus à l'allocation dynamique particulier de \emph{Contiki} ont fait que la tâche à été abandonné puisqu'un parser générique doit être écrit dans la suite du stage.
 
 %peut-être une nouvelle partie
+%peut-être changer le nom de la section
 \section{Compilation}
 
-\subsection{L'intérêt du générateur du code}
+Après m'être familiarisé avec le système \emph{Contiki}, le paradigme du \emph{model@runtime} et son implémentation \emph{Kevoree-C} j'ai pu commencer l'objectif principal de mon stage, à savoir produire dynamiquement les parties critiques de \emph{Kevoree-C} à partir d'un méta-modèle \emph{Kevoree}.
+
+\subsection{Intérêt de générer du code}
+
+Comme décrit en partie \ref{kevoree} l'actuelle version de \emph{Kevoree-C} a été écrite manuellement. En plus d'avoir une série d'inconvénients, l'écriture manuelle a également quelques avantages que la ré-écriture générique se devra d'essayer de conserver.
+
+Ces inconvénients sont en partie les mêmes que ceux détaillés dans la partie \ref{parser-spécif} et son avantage principal découle de ces défauts, en étant si spécifique à la version du méta-modèle lu et à la structure de données, le programme final est très performant. L'objectif va être de produire du code le plus optimisé possible même s'il sera théoriquement difficile d'atteindre ce même niveau. Ici la notion d'optimisation est subjective, elle consiste plus à évaluer la manière dont le stockage des données est réalisés, les éventuelles redondances d'information et la complexité algorithmique des sections critiques.
+
+Il est par exemple évident que le code source du générateur de code doit privilégier la lisibilité à la rapidité d'exécution.
+
+\subsection{Méta-modèle \emph{Kevoree}}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.3]{images/kevoree-cd.png}
+\caption{Extrait du méta-modèle de Kevoree version 3}
+\end{figure}
+
+\subsection{Structure de \emph{Kevoree}}
+
+\subsection{Résumé du workflow}
 
 \subsection{Une structure de compilateur}
 
@@ -63,6 +85,8 @@ Les choix techniques
 Diagramme UML simplifié, en annexe peut être le complet de Kevoree, risque d'être dur à passer en format A4
 
 \subsection{Générer les outils de manipulation}
+
+CMakeLists.txt, fichiers statiques : json.h
 
 serialization, dé-serialization
 
