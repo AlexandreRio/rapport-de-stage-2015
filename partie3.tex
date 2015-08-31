@@ -62,11 +62,11 @@ Ces inconvénients sont en partie les mêmes que ceux détaillés dans la partie
 
 Il est par exemple évident que le code source du générateur de code doit privilégier la lisibilité à la rapidité d'exécution.
 
-\subsection{Méta-modèle \emph{Kevoree}}
+\subsection{\label{mm-kevoree}Méta-modèle \emph{Kevoree}}
 
 Le méta-modèle de \emph{Kevoree} peut être représenté de la même manière qu'un méta-modèle \emph{EMF}, on peut donc utiliser \emph{Eclipse}\cite{eclipse} et en particulier sa version \emph{Eclipse Modeling Tools}\footnote{http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/marsr} pour l'afficher. 
 
-On peut voir sur l'extrait de diagramme en Figure \ref{kevoree-cd}, page \pageref{kevoree-cd} et en Annexe \ref{kevoree-full-cd} que les classes possèdent généralement peu d'attributs primitifs. On peut également remarquer que de nombreuses classes implémentent l'interface \emph{NamedElement} et obtiennent donc un attribut \emph{name} ainsi que toutes les classes sont incluses directement ou indirectement dans la classe \emph{ContainerRoot}.
+On peut voir sur l'extrait de diagramme en Figure \ref{kevoree-cd}, page \pageref{kevoree-cd} et en Annexe \ref{kevoree-full-cd} que les classes possèdent généralement peu d'attributs primitifs. On peut également remarquer que de nombreuses classes implémentent l'interface \emph{NamedElement} et obtiennent donc un attribut \emph{name} et que toutes les classes sont référencées directement ou indirectement par la classe \emph{ContainerRoot}.
 
 \begin{figure}[ht!]
 \centering
@@ -76,6 +76,8 @@ On peut voir sur l'extrait de diagramme en Figure \ref{kevoree-cd}, page \pagere
 \end{figure}
 
 \subsection{Structure de \emph{Kevoree}}
+
+Pour résumer \emph{Kevoree-c} est composé d'une structure de données détaillée en section \ref{mm-kevoree}, d'outils de manipulation pour permettre la sérialisation/désérialisation, comparaison de modèles et permettre l'adaptation suite au calcul de ses différences.
 
 \subsection{Résumé du workflow}
 
