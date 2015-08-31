@@ -1,0 +1,177 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'image.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1697.25bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.66958315)%
+    \put(0,0){\includegraphics[width=\unitlength]{images/kevoree-full-cd.pdf}}%
+    \put(0.47350125,0.1635587){\makebox(0,0)[lb]{\smash{ComponentInstance}}}%
+    \put(0.09594933,0.08437178){\makebox(0,0)[lb]{\smash{ComponentType}}}%
+    \put(0.35189277,0.19183974){\makebox(0,0)[lb]{\smash{ContainerNode}}}%
+    \put(0.59039623,0.03912211){\makebox(0,0)[lb]{\smash{ContainerRoot}}}%
+    \put(0.75725438,0.33890116){\makebox(0,0)[lb]{\smash{PortType}}}%
+    \put(0.73557225,0.3280601){\makebox(0,0)[lb]{\smash{synchrone : EBoolean = false}}}%
+    \put(0.51922227,0.26537045){\makebox(0,0)[lb]{\smash{Port}}}%
+    \put(0.42400943,0.26537045){\makebox(0,0)[lb]{\smash{Namespace}}}%
+    \put(0.31889822,0.497275){\makebox(0,0)[lb]{\smash{Dictionary}}}%
+    \put(0.21897187,0.40111946){\makebox(0,0)[lb]{\smash{FragmentDictionary}}}%
+    \put(0.22085727,0.39027839){\makebox(0,0)[lb]{\smash{name : EString}}}%
+    \put(0.54514656,0.54252467){\makebox(0,0)[lb]{\smash{DictionaryType}}}%
+    \put(0.53949035,0.62171159){\makebox(0,0)[lb]{\smash{DictionaryAttribute}}}%
+    \put(0.52063632,0.61087053){\makebox(0,0)[lb]{\smash{optional : EBoolean = false}}}%
+    \put(0.52063632,0.60332891){\makebox(0,0)[lb]{\smash{state : EBoolean = false}}}%
+    \put(0.52063632,0.5957873){\makebox(0,0)[lb]{\smash{datatype : EString}}}%
+    \put(0.52063632,0.58824569){\makebox(0,0)[lb]{\smash{fragmentDependant : EBoolean = false}}}%
+    \put(0.52063632,0.58070408){\makebox(0,0)[lb]{\smash{defaultValue : EString}}}%
+    \put(0.31748417,0.57080572){\makebox(0,0)[lb]{\smash{DictionaryValue}}}%
+    \put(0.31701281,0.55996465){\makebox(0,0)[lb]{\smash{name : EString}}}%
+    \put(0.31701281,0.55242304){\makebox(0,0)[lb]{\smash{value : EString}}}%
+    \put(0.03325968,0.25971424){\makebox(0,0)[lb]{\smash{PortTypeRef}}}%
+    \put(0.01157755,0.24887318){\makebox(0,0)[lb]{\smash{optional : EBooleanObject}}}%
+    \put(0.01157755,0.24133157){\makebox(0,0)[lb]{\smash{noDependency : EBooleanObject}}}%
+    \put(0.83125644,0.20880837){\makebox(0,0)[lb]{\smash{ServicePortType}}}%
+    \put(0.83172779,0.1979673){\makebox(0,0)[lb]{\smash{interface : EString}}}%
+    \put(0.83926941,0.48030638){\makebox(0,0)[lb]{\smash{Operation}}}%
+    \put(0.77987922,0.59343055){\makebox(0,0)[lb]{\smash{Parameter}}}%
+    \put(0.7695095,0.58258948){\makebox(0,0)[lb]{\smash{order : EIntegerObject}}}%
+    \put(0.66439829,0.64999264){\makebox(0,0)[lb]{\smash{TypedElement}}}%
+    \put(0.65449993,0.55383709){\makebox(0,0)[lb]{\smash{MessagePortType}}}%
+    \put(0.20483134,0.08437178){\makebox(0,0)[lb]{\smash{Repository}}}%
+    \put(0.19823243,0.07353071){\makebox(0,0)[lb]{\smash{url : EString}}}%
+    \put(0.95946384,0.48030638){\makebox(0,0)[lb]{\smash{DeployUnit}}}%
+    \put(0.95050817,0.46946531){\makebox(0,0)[lb]{\smash{groupName : EString}}}%
+    \put(0.95050817,0.4619237){\makebox(0,0)[lb]{\smash{version : EString}}}%
+    \put(0.95050817,0.45438209){\makebox(0,0)[lb]{\smash{url : EString}}}%
+    \put(0.95050817,0.44684048){\makebox(0,0)[lb]{\smash{hashcode : EString}}}%
+    \put(0.95050817,0.43929887){\makebox(0,0)[lb]{\smash{type : EString}}}%
+    \put(0.87132125,0.14093386){\makebox(0,0)[lb]{\smash{TypeLibrary}}}%
+    \put(0.37970246,0.63868022){\makebox(0,0)[lb]{\smash{NamedElement}}}%
+    \put(0.37923111,0.62783915){\makebox(0,0)[lb]{\smash{name : EString}}}%
+    \put(0.0733245,0.46899396){\makebox(0,0)[lb]{\smash{PortTypeMapping}}}%
+    \put(0.06248343,0.45815289){\makebox(0,0)[lb]{\smash{beanMethodName : EString}}}%
+    \put(0.06248343,0.45061128){\makebox(0,0)[lb]{\smash{serviceMethodName : EString}}}%
+    \put(0.06248343,0.44306967){\makebox(0,0)[lb]{\smash{paramTypes : EString}}}%
+    \put(0.6040654,0.19183974){\makebox(0,0)[lb]{\smash{Channel}}}%
+    \put(0.6031227,0.26537045){\makebox(0,0)[lb]{\smash{MBinding}}}%
+    \put(0.32596848,0.08437178){\makebox(0,0)[lb]{\smash{NodeNetwork}}}%
+    \put(0.13035793,0.64433643){\makebox(0,0)[lb]{\smash{NodeLink}}}%
+    \put(0.1077331,0.63349536){\makebox(0,0)[lb]{\smash{networkType : EString}}}%
+    \put(0.1077331,0.62595375){\makebox(0,0)[lb]{\smash{estimatedRate : EIntegerObject}}}%
+    \put(0.1077331,0.61841214){\makebox(0,0)[lb]{\smash{lastCheck : EString}}}%
+    \put(0.1077331,0.61087053){\makebox(0,0)[lb]{\smash{zoneID : EString}}}%
+    \put(0.20341729,0.51424363){\makebox(0,0)[lb]{\smash{NetworkInfo}}}%
+    \put(0.27034909,0.64999264){\makebox(0,0)[lb]{\smash{NetworkProperty}}}%
+    \put(0.27176315,0.63915157){\makebox(0,0)[lb]{\smash{value : EString}}}%
+    \put(0.64271616,0.33890116){\makebox(0,0)[lb]{\smash{ChannelType}}}%
+    \put(0.62244808,0.3280601){\makebox(0,0)[lb]{\smash{lowerBindings : EIntegerObject}}}%
+    \put(0.62244808,0.32051849){\makebox(0,0)[lb]{\smash{upperBindings : EIntegerObject}}}%
+    \put(0.62244808,0.31297687){\makebox(0,0)[lb]{\smash{lowerFragments : EIntegerObject}}}%
+    \put(0.62244808,0.30543526){\makebox(0,0)[lb]{\smash{upperFragments : EIntegerObject}}}%
+    \put(0.54938872,0.46333775){\makebox(0,0)[lb]{\smash{TypeDefinition}}}%
+    \put(0.53760495,0.45249669){\makebox(0,0)[lb]{\smash{version : EString}}}%
+    \put(0.53760495,0.44495507){\makebox(0,0)[lb]{\smash{factoryBean : EString}}}%
+    \put(0.53760495,0.43741346){\makebox(0,0)[lb]{\smash{bean : EString}}}%
+    \put(0.53760495,0.42987185){\makebox(0,0)[lb]{\smash{abstract : EBoolean = false}}}%
+    \put(0.32785388,0.361526){\makebox(0,0)[lb]{\smash{Instance}}}%
+    \put(0.31135661,0.35068493){\makebox(0,0)[lb]{\smash{metaData : EString}}}%
+    \put(0.31135661,0.34314332){\makebox(0,0)[lb]{\smash{started : EBoolean = true}}}%
+    \put(0.30145824,0.26537045){\makebox(0,0)[lb]{\smash{Group}}}%
+    \put(0.7025777,0.22577699){\makebox(0,0)[lb]{\smash{GroupType}}}%
+    \put(0.55127412,0.33890116){\makebox(0,0)[lb]{\smash{NodeType}}}%
+    \put(0.40374135,0.41525998){\makebox(0,0)[lb]{\smash{[1..1] typeDefinition}}}%
+    \put(0.3104139,0.40724702){\makebox(0,0)[lb]{\smash{[0..1] dictionary}}}%
+    \put(0.25243777,0.36011195){\makebox(0,0)[lb]{\smash{[0..*] fragmentDictionary}}}%
+    \put(0.48858447,0.20173811){\makebox(0,0)[lb]{\smash{[0..*] provided}}}%
+    \put(0.50508175,0.18524083){\makebox(0,0)[lb]{\smash{[0..*] required}}}%
+    \put(0.44192075,0.19231109){\makebox(0,0)[lb]{\smash{[0..1] namespace}}}%
+    \put(0.75018412,0.45155398){\makebox(0,0)[lb]{\smash{[1..*] deployUnit}}}%
+    \put(0.52817793,0.48549124){\makebox(0,0)[lb]{\smash{[0..1] dictionaryType}}}%
+    \put(0.6040654,0.38886434){\makebox(0,0)[lb]{\smash{[0..*] superTypes}}}%
+    \put(0.05965532,0.14988953){\makebox(0,0)[lb]{\smash{[0..*] required}}}%
+    \put(0.05918397,0.14988953){\makebox(0,0)[lb]{\smash{[0..*] provided}}}%
+    \put(0.41034026,0.16120194){\makebox(0,0)[lb]{\smash{[0..*] components}}}%
+    \put(0.15486817,0.24180292){\makebox(0,0)[lb]{\smash{[0..*] networkInformation}}}%
+    \put(0.44710561,0.07023126){\makebox(0,0)[lb]{\smash{[0..*] nodes}}}%
+    \put(0.77705111,0.23567536){\makebox(0,0)[lb]{\smash{[0..*] typeDefinitions}}}%
+    \put(0.38583002,0.03912211){\makebox(0,0)[lb]{\smash{[0..*] repositories}}}%
+    \put(0.89064663,0.28469583){\makebox(0,0)[lb]{\smash{[0..*] dataTypes}}}%
+    \put(0.77375166,0.03487995){\makebox(0,0)[lb]{\smash{[0..*] libraries}}}%
+    \put(0.59181028,0.09804095){\makebox(0,0)[lb]{\smash{[0..*] hubs}}}%
+    \put(0.57766976,0.19278244){\makebox(0,0)[lb]{\smash{[0..*] mBindings}}}%
+    \put(0.9340109,0.05420533){\makebox(0,0)[lb]{\smash{[0..*] deployUnits}}}%
+    \put(0.44522021,0.03912211){\makebox(0,0)[lb]{\smash{[0..*] nodeNetworks}}}%
+    \put(0.37734571,0.06928856){\makebox(0,0)[lb]{\smash{[0..*] groups}}}%
+    \put(0.24018265,0.27196936){\makebox(0,0)[lb]{\smash{[1..1] portTypeRef}}}%
+    \put(0.36461924,0.29129474){\makebox(0,0)[lb]{\smash{[0..*] elements}}}%
+    \put(0.31418471,0.52131389){\makebox(0,0)[lb]{\smash{[0..*] values}}}%
+    \put(0.53430549,0.5623214){\makebox(0,0)[lb]{\smash{[0..*] attributes}}}%
+    \put(0.74688467,0.66413316){\makebox(0,0)[lb]{\smash{[0..*] genericTypes}}}%
+    \put(0.39101488,0.28658123){\makebox(0,0)[lb]{\smash{[1..1] ref}}}%
+    \put(0.04692886,0.35162763){\makebox(0,0)[lb]{\smash{[0..*] mappings}}}%
+    \put(0.82135808,0.3271174){\makebox(0,0)[lb]{\smash{[0..*] operations}}}%
+    \put(0.79543379,0.51471498){\makebox(0,0)[lb]{\smash{[0..*] parameters}}}%
+    \put(0.71247606,0.51754308){\makebox(0,0)[lb]{\smash{[0..1] returnType}}}%
+    \put(0.72048903,0.59955811){\makebox(0,0)[lb]{\smash{[0..1] type}}}%
+    \put(0.66062749,0.58918839){\makebox(0,0)[lb]{\smash{[0..*] filters}}}%
+    \put(0.91657092,0.51141553){\makebox(0,0)[lb]{\smash{[0..*] requiredLibs}}}%
+    \put(0.7025777,0.27998232){\makebox(0,0)[lb]{\smash{[0..*] subTypes}}}%
+    \put(0.11008985,0.24086022){\makebox(0,0)[lb]{\smash{[0..*] link}}}%
+    \put(0.3382236,0.12537929){\makebox(0,0)[lb]{\smash{[0..1] initBy}}}%
+    \put(0.33539549,0.12537929){\makebox(0,0)[lb]{\smash{[1..1] target}}}%
+    \put(0.19257623,0.6283105){\makebox(0,0)[lb]{\smash{[0..*] networkProperties}}}%
+    \put(0.23499779,0.56939166){\makebox(0,0)[lb]{\smash{[0..*] values}}}%
+    \put(0.40279864,0.15837384){\makebox(0,0)[lb]{\smash{[0..1] host}}}%
+    \put(0.37121815,0.1300928){\makebox(0,0)[lb]{\smash{[0..*] hosts}}}%
+    \put(0.54278981,0.25217263){\makebox(0,0)[lb]{\smash{[1..1] port}}}%
+    \put(0.55598763,0.23473266){\makebox(0,0)[lb]{\smash{[0..*] bindings}}}%
+    \put(0.35095007,0.21116512){\makebox(0,0)[lb]{\smash{[0..*] subNodes}}}%
+    \put(0.29297393,0.21163647){\makebox(0,0)[lb]{\smash{[0..*] groups}}}%
+    \put(0.60265135,0.20173811){\makebox(0,0)[lb]{\smash{[1..1] hub}}}%
+    \put(0.59652379,0.22059213){\makebox(0,0)[lb]{\smash{[0..*] bindings}}}%
+  \end{picture}%
+\endgroup%
