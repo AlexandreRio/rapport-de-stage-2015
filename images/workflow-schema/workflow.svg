@@ -258,9 +258,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="561.57549"
-     inkscape:cy="300.94538"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="715.99975"
+     inkscape:cy="263.72617"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -304,13 +304,14 @@
        y="618.32629"
        ry="7.3196454" />
     <rect
-       style="fill:#b3b3b3;fill-opacity:1;fill-rule:evenodd;stroke:#293229;stroke-width:1.19313895999999997;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter9608);opacity:1"
+       style="fill:#b3b3b3;fill-opacity:1;fill-rule:evenodd;stroke:#293229;stroke-width:1.19313896;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter9608)"
        id="rect9418"
        width="660.41449"
        height="243.6855"
        x="17.151779"
        y="623.43298"
-       ry="7.3101921" />
+       ry="7.3101921"
+       transform="matrix(0.81605164,0,0,1.0003728,130.68184,-0.27782836)" />
     <g
        id="Livello_11"
        transform="translate(272.74304,516.17)">
@@ -1052,5 +1053,55 @@
          id="tspan7618-7-4-3-2"
          sodipodi:role="line"
          style="font-size:16px">msp430-gcc</tspan></text>
+    <g
+       id="g6305-0"
+       transform="matrix(0.86363636,0,0,0.86363636,3.9626721,539.44618)">
+      <g
+         transform="translate(517.14733,414.41495)"
+         id="g6129-2">
+        <path
+           inkscape:connector-curvature="0"
+           id="path6131-2"
+           d="M 66.333,6.875 H 25 v 12 h -8 v 74.25 h 58 v -12 h 8 V 19.375 L 66.333,6.875 z M 66.771,9.702 79.167,19 H 66.695 L 66.771,9.702 z M 73,79.125 v 1 1 10 H 19 v -70.25 h 6 1 1 29.776 L 56.68,33 H 73 V 79.125 z M 58.695,31 58.77,21.702 71.167,31 H 58.695 z M 81,79.125 H 75 V 31.375 L 58.333,18.875 H 27 v -10 H 64.776 L 64.68,21 H 81 v 58.125 z"
+           style="fill:#000000;fill-opacity:1" />
+        <polygon
+           id="polygon6133-4"
+           points="27,39.844 45.875,39.844 45.875,37.844 27,37.844 26,37.844 25.875,37.844 25.875,39.844 26,39.844 " />
+        <polygon
+           id="polygon6135-7"
+           points="26,45.844 25.875,45.844 25.875,47.844 26,47.844 27,47.844 65.875,47.844 65.875,45.844 27,45.844 " />
+        <polygon
+           id="polygon6137-8"
+           points="26,53.844 25.875,53.844 25.875,55.844 26,55.844 27,55.844 65.875,55.844 65.875,53.844 27,53.844 " />
+        <polygon
+           id="polygon6139-1"
+           points="26,61.844 25.875,61.844 25.875,63.844 26,63.844 27,63.844 65.875,63.844 65.875,61.844 27,61.844 " />
+        <polygon
+           id="polygon6141-3"
+           points="26,69.844 25.875,69.844 25.875,71.844 26,71.844 27,71.844 65.875,71.844 65.875,69.844 27,69.844 " />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text6291-5"
+         y="528.56439"
+         x="513.15601"
+         style="font-size:16.21052551px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           id="tspan6303-7"
+           y="528.56439"
+           x="513.15601"
+           sodipodi:role="line"
+           style="font-size:16.21052551px">   Sources de</tspan><tspan
+           y="548.82758"
+           x="513.15601"
+           sodipodi:role="line"
+           style="font-size:16.21052551px"
+           id="tspan3455">     Contiki    </tspan></text>
+    </g>
+    <path
+       style="fill:#d38d5f;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.949;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Lend)"
+       d="m 491.78572,899.50504 0,-90"
+       id="path3457"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>
