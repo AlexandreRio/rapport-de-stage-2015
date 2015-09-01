@@ -79,9 +79,16 @@ On peut voir sur l'extrait de diagramme en Figure \ref{kevoree-cd}, page \pagere
 
 Pour résumer, \emph{Kevoree-c} est composé d'une structure de données détaillée en section \ref{mm-kevoree}, d'outils de manipulation pour permettre la sérialisation/désérialisation, comparaison de modèles et permettre l'adaptation suite au calcul de ses différences.
 
-\subsection{Résumé du workflow}
+\subsection{Flux de travail}
 
-% schéma à faire sous inkscape
+bla bla de résumé du workflow
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.55]{images/workflow-schema/workflow.pdf}
+\caption{Flux de travail du développement au déploiement du nouveau firmware.}
+\label{workfow}
+\end{figure}
 
 \subsection{kmfcpp}
 
@@ -101,7 +108,9 @@ Pour générer du code \emph{kmfc} utilise le framework \emph{Velocity}\footnote
 
 L'utilisation d'un moteur de template permet de séparer la logique algorithmique du générateur du code même généré. La lisibilité en est grandement améliorée.
 
-\lstset{language=c, captionpos=b, caption=Fichier : testSource.vm permettant de générer un fichier de test unitaire.}
+\subsubsection{L'utilisation de template}
+
+\lstset{language=c, captionpos=b, caption=Fichier testSource.vm permettant de générer un fichier de test unitaire.}
 \begin{lstlisting}[frame=single]
 #[[#include "]]#$name#[[Test.h"]]#
 
