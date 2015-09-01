@@ -161,13 +161,26 @@ Suite* $name#[[_suite(void)]]#
 
 \subsection{Un vrai compilateur}
 
-\cite{freeman2004head}, \cite{Appel2003MCI599718}
+Les premières versions de \emph{kmf} adoptaient plus une logique de transcription de méta-modèles vers le langage \emph{C}, à l'image de \emph{kmfcpp} la génération de code était réalisée directement pendant le parcours du méta-modèle d'entrée.
 
-la représentation intermédiaire
+Un compilateur se différencie par sa représentation intermédiaire. Le travail du compilateur est alors séparé en deux parties, une face avant et une face arrière. La face avant est chargée de lire le langage d'entrée, ici un méta-modèle et d'en construire une représentation intermédiaire propre au compilateur. La face arrière se charge de générer du code, ici du \emph{C} à partir de cette représentation.
+
+La représentation intermédiaire permet de séparer les préoccupations et offre de nombreux avantages.
+
+Parmi ces avantages, les suivants peuvent nous concerner :
+\begin{itemize}
+\item on peut facilement corrigé ou corriger le modèle est lu ou comment le code \emph{C} est généré,
+\item l'optimisation s'effectuera sur la représentation intermédiaire et ne sera pas dépendante des formats lus et produits,
+\item on peut imaginer facilement pouvoir ou produire différents types de code ou lire différents formats de méta-modèle.
+\end{itemize}
+
+En plus d'un enseignement de Compilation suivi à l'\univname je me suis documenté\cite{freeman2004head}, \cite{Appel2003MCI599718} durant la rédaction de ce compilateur.
 
 \subsection{Générer une structure de données}
 
 Les choix techniques
+
+\subsubsection{Générer des tests unitaires}
 
 \subsection{Générer les outils de manipulation}
 
