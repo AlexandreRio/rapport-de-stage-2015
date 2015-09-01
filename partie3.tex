@@ -104,14 +104,29 @@ Le langage \emph{C++} permet nativement beaucoup de mécanismes utiles à la rep
 
 Ces fonctionnalités natives font que \emph{kmfcpp} ne génère que peu de code et peut le faire en ne parcourant le méta-modèle qu'une seule fois et en produisant directement le code \emph{C++} équivalent.
 
-Pour générer du code \emph{kmfc} utilise le framework \emph{Velocity}\footnote{lien vers velocity}, il permet de créer des templates de texte contenant des variables ou des structures de contrôle qui seront évaluées et remplacées lors du parsing du méta-modèle.
+Pour générer du code \emph{kmfc} utilise le framework \emph{Velocity}\footnote{https://velocity.apache.org/}, il permet de créer des templates de texte contenant des variables ou des structures de contrôle qui seront évaluées et remplacées lors du parsing du méta-modèle.
 
 L'utilisation d'un moteur de template permet de séparer la logique algorithmique du générateur du code même généré. La lisibilité en est grandement améliorée.
 
 \subsubsection{L'utilisation de template}
 
-\lstset{language=c, captionpos=b, caption=Fichier testSource.vm permettant de générer un fichier de test unitaire.}
-\begin{lstlisting}[frame=single]
+Comme visible sur le Listing \ref{velocity} en page \pageref{velocity} la syntaxe de \emph{Velocity} permet de gagner en lisibilité. Les instructions de pré-processeur \emph{C}, par exemple lignes 1, 3 et 4, doivent être explicitement ignorées en étant encadrées par \texttt{\#[[ ]]\#}, \texttt{\#include} étant également une instruction \emph{Velocity}.
+
+Les variables \emph{Java} sont référencées en écrivant \texttt{\$variable}, par exemple ligne 14. Une variable de type primitif sera directement affiché, les objets se verront automatiquement appelé leur méthode \texttt{toString()}.
+
+\emph{Velocity} permet également d'appeler les méthodes des objets, comme en ligne 9.
+
+Pour finir, les structures de contrôle permettent de calculer uniquement une liste du côté \emph{Java} et de la passer à \emph{Velocity} qui se contentera de la parcourir, comme visible en ligne 24 à 26.
+
+\lstset{
+ language=c,
+ captionpos=b,
+ otherkeywords={foreach, end, in, include},
+ numbers=left,
+ caption={Fichier testSource.vm permettant de générer un fichier de test unitaire.}
+}
+
+\begin{lstlisting}[frame=single, label={velocity}]
 #[[#include "]]#$name#[[Test.h"]]#
 
 #[[#include <stdlib.h>]]#
