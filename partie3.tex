@@ -194,18 +194,46 @@ La \texttt{struct} des attributs possède un pointeur sur la \texttt{struct} rep
 
 La contrainte est de connaître la taille de chaque attribut au moment de la compilation. Les types primitifs ne posent pas de problèmes pour avoir un équivalent en \emph{C}, les relations unaires sont représentés par un pointeur sur la \texttt{struct} des attributs de la classe voulue. En revanche les relations multiples du méta-modèle du type \texttt{0-*} produirait un tableau de taille variable, la solution est de gérer cette mémoire de façon dynamique. Cette préoccupation a déjà été résolue dans \emph{Kevoree-C} en développant la structure de données \texttt{map\_t}.
 
-\subsubsection{Gestion de l'héritage et du polymorphisme}
+\subsubsection{Gestion de l'héritage}
 
+Grâce à ces deux \texttt{struct} l'héritage est géré de manière simple, si une classe \texttt{B} hérite d'une classe \texttt{A} alors tous les attributs de \texttt{A} seront copiés dans la \texttt{struct} de \texttt{B}.
+
+Pour l'appel de fonctions définies dans une classe mère plusieurs approches sont possibles.
+
+La première est d'hériter des pointeurs de fonctions parents en les copiant et en les faisant pointer sur le code contenu dans les classes mères en passant par l'attribut \texttt{super} pointant sur la classe mère. De cette manière le code de la méthode n'est pas dupliqué mais le compilateur ne peut déterminer l'emplacement de code à la compilation et ne peut pas initialiser la \texttt{struct} en la laissant constante. C'est l'approche utilisée actuellement dans \emph{kmfc}.
+
+Une autre approche est d'ajouter des fonctions qui vont elles se contenter d'appeler le code parent. C'est l'approche utilisée dans la version de \emph{Kevoree-C}.
+
+\subsubsection{Gestion du polymorphisme}
+
+Le langage \emph{C} offre une possibilité d'outre passer la vérification des types des pointeurs. En utilisant la notation \texttt{void*} et des casts il est possible d'utiliser le polymorphisme.
+
+L'utilisation de \texttt{void*} pour désigner un espace mémoire rend difficile la relecture du code, l'avantage réside dans le fait que le code est généré et ne doit en théorie pas être relu ou modifié directement. Les modifications sont à faire dans le générateur, où le code est isolé et le rôle de chaque variable facile à déterminer.
+
+\subsubsection{Exemple d'implémentation}
 
 L'annexe \ref{dico-struct} en page \pageref{dico-struct} résume l'héritage des attributs, leur typage, la gestion de la table virtuelle et des déclarations des signatures de fonction.
 
 \subsubsection{Générer des tests unitaires}
 
-\subsection{Générer les outils de manipulation}
+En plus de générer une structure de données j'ai estimer que générer du code unitaire pour cette structure avait des avantages. Pour chaque méthode de chaque classe je génère au moins un test unitaire.
 
-CMakeLists.txt, fichiers statiques : json.h
+En plus de vérifier que l'appel des méthodes modifient l'état de l'objet leur rôle est surtout de s'assurer que les appels peuvent être réalisés. Un appel de pointeur de fonctions mal initialisé résulterait par un échec du test.
+
+Aucun test n'était réalisé sur \emph{Kevoree-C}.
+
+\subsection{Générer des outils de manipulation}
+
+En plus de la structure de données il faut pouvoir effectuer les actions nécessaires au paradigme du \emph{model@runtime}.
+
+La sérialisation des instances courantes est possible par simple appel à une méthode de la classe \emph{ContainerRoot}, l'appel est ensuite propagé aux objets référencés, comme implémenté dans \emph{Kevoree-C}. Une approche utilisant le patron de conception Visiteur\footnote{https://fr.wikipedia.org/wiki/Visiteur\_(patron\_de\_conception)} a été implémenté mais le format JSON demande un traitement particulier pour les éléments en début et fin de liste alors que Visiteur demande à ce que chaque objet effectue son action indépendamment. Par exemple une liste comment par un \texttt{[}, finit par \texttt{]} et chaque élément, sauf le dernier, est suivi d'une virgule.
+
 
 serialization, dé-serialization
+
+\subsection{Générer le reste}
+CMakeLists.txt, fichiers statiques : json.h
+
 
 \section{Avancement, limites et avenir}
 
