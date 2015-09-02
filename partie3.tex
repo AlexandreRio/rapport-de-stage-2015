@@ -228,16 +228,63 @@ En plus de la structure de données il faut pouvoir effectuer les actions néces
 
 La sérialisation des instances courantes est possible par simple appel à une méthode de la classe \emph{ContainerRoot}, l'appel est ensuite propagé aux objets référencés, comme implémenté dans \emph{Kevoree-C}. Une approche utilisant le patron de conception Visiteur\footnote{https://fr.wikipedia.org/wiki/Visiteur\_(patron\_de\_conception)} a été implémenté mais le format JSON demande un traitement particulier pour les éléments en début et fin de liste alors que Visiteur demande à ce que chaque objet effectue son action indépendamment. Par exemple une liste comment par un \texttt{[}, finit par \texttt{]} et chaque élément, sauf le dernier, est suivi d'une virgule.
 
+La désérialisation est pensée de manière totalement différente de celle implémentée dans \emph{Kevoree-C} pour palier à ces défauts, voir section \ref{}. Quelques fonctions génériques telles que \texttt{parseObject} et \texttt{parseArray} sont appelées en fonction du contexte pour récupérer les informations voulues du fichier JSON. Le contexte, les attributs attendus et la hiérarchie à parcourir, sont définis par un ensemble de tables tel que le Listing \ref{deserial}.
 
-serialization, dé-serialization
+\lstset{
+ language=C,
+ captionpos=b,
+ otherkeywords={},
+ numbers=left,
+ caption={Exemple de structure permettant de connaître le schéma de désérialisation.}
+}
+
+\begin{lstlisting}[frame=single, label={deserial}]
+const struct at NodeNetwork_Attr[NodeNetwork_NB_ATTR] = {
+{"eClass", doNothing, PRIMITIVE_TYPE, PRIMITIVE_TYPE},
+{"generated_KMF_ID", NodeNetworkSetgenerated_KMF_ID, NODENETWORK_TYPE, PRIMITIVE_TYPE},
+{"link", parseArray, NODENETWORK_TYPE, NODELINK_TYPE},
+{"initBy", NodeNetworkSetinitBy, NODENETWORK_TYPE, CONTAINERNODE_TYPE},
+{"target", NodeNetworkSettarget, NODENETWORK_TYPE, CONTAINERNODE_TYPE},
+};
+\end{lstlisting}
+
+L'intérêt est de n'écrire le nom de l'attribut qu'une fois. On lui associe un pointeur de fonctions à appeler lorsque cette attribut est rencontré et deux types énumérés pour définir un contexte, le premier définit où on se trouve, il identifie la classe à laquelle l'attribut appartient, le second le type que l'on doit lire. Il est utile que dans le cas des liens multiples.
+
+Les mécanismes de comparaison et d'adaptation ne représentent pas la partie critique de \emph{Kevoree-C}, leurs algorithmes seront donc repris et incorporés à \emph{kmfc}.
 
 \subsection{Générer le reste}
-CMakeLists.txt, fichiers statiques : json.h
 
+Pour avoir un projet complet et fonctionnel d'autres fichiers doivent également être inclus ou générés. Il s'agit de fichier correspondant à des types tels que \texttt{map\_t} ou pour gérer le format JSON. Ces fichiers sont simplement ajoutés au code généré.
+
+Des fichiers lanceurs, contenant une méthode \texttt{main}, sont également copiés, il me permette de développer une fonctionnalité d'abord sur quelques classes choisies avant de l'ajouter au compilateur et de gérer l'ensemble des classes couvertes par le méta-modèle.
+
+D'autres fichiers sont nécessaires à la compilation du projet. La compilation est assistée par \emph{cmake}\footnote{http://www.cmake.org/} pour gérer facilement la production de différents exécutables : un pour chaque fichier contenant une méthode \texttt{main}, un pour lancer la suite de tests. Cmake permet de n'inclure les tests que dans l'exécutable lançant les tests.
 
 \section{Avancement, limites et avenir}
 
 Confiance dans le compilateur, les quelques cas ad-hoc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
