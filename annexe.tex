@@ -3,10 +3,11 @@
 \addcontentsline{toc}{section}{Annexes}
 \appendix
 \renewcommand\thefigure{\thesection.\arabic{figure}}
+\renewcommand\thelstlisting{\thesection.\arabic{lstlisting}}
 \setcounter{figure}{0}
+\setcounter{lstlisting}{0}
 \setcounter{section}{1}
 %\setcounter{subsection}{1}
-
 
 \subsection{\label{iot-lab}Distribution des nœuds FIT iot-lab}
 
@@ -43,3 +44,42 @@
 \caption{Représentation du méta-modèle de Kevoree.}
 \end{figure}
 \end{landscape}
+
+\lstset{
+ language=C,
+ captionpos=b,
+ numbers=left,
+ otherkeywords={},
+ caption={Extrait du fichier Dictionary.h.}
+}
+
+\subsection{\label{dico-struct}Exemple de \texttt{struct} représentant une classe}
+\begin{lstlisting}[frame=single]
+typedef DictionaryValue* (*ftprDictionaryFindValuesByID)(Dictionary*, char*);
+void initDictionary(Dictionary*);
+Dictionary* new_Dictionary(void);
+
+typedef struct _VT_Dictionary {
+	VT_KMFContainer *super;
+	/* KMFContainer */
+	fptrKMFMetaClassName metaClassName;
+	fptrKMFInternalGetKey internalGetKey;
+	fptrKMFGetPath getPath;
+	int (*fptrToJSON)(void*);
+	fptrFindByPath findByPath;
+	fptrDelete delete;
+	/*Dictionary*/
+	ftprDictionaryAddValues dictionaryAddValues;
+	ftprDictionaryRemoveValues dictionaryRemoveValues;
+	ftprDictionaryFindValuesByID dictionaryFindValuesByID;
+} VT_Dictionary;
+
+typedef struct _Dictionary {
+	VT_Dictionary *VT;
+	/* KMFContainer */
+	KMFContainer *eContainer;
+	/* Dictionary */
+	char generated_KMF_ID[9];
+	map_t values;
+} Dictionary;
+\end{lstlisting}

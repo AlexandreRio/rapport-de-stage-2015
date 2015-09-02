@@ -90,7 +90,7 @@ La figure \ref{workfow} en page \pageref{workfow} résume les différentes étap
 \label{workfow}
 \end{figure}
 
-\subsection{kmfcpp}
+\subsection{\label{kmfcpp}kmfcpp}
 
 Avant de commencer mon générateur de code \johann et \paco m'ont indiqué de regarder la version \emph{C++}\footnote{https://github.com/kevoree/kmfcpp} de \emph{KMF}. Bien que le langage de destination ne soit pas le même le format du méta-modèle d'entrée est identique, c'est une partie qui peut donc être réutilisée.
 
@@ -119,7 +119,7 @@ Les variables \emph{Java} sont référencées en écrivant \texttt{\$variable}, 
 Pour finir, les structures de contrôle permettent de calculer uniquement une liste du côté \emph{Java} et de la passer à \emph{Velocity} qui se contentera de la parcourir, comme visible en ligne 24 à 26.
 
 \lstset{
- language=c,
+ language=C,
  captionpos=b,
  otherkeywords={foreach, end, in, include},
  numbers=left,
@@ -178,7 +178,26 @@ En plus d'un enseignement de Compilation suivi à l'\univname je me suis documen
 
 \subsection{Générer une structure de données}
 
-Les choix techniques
+La première étape est donc, petit à petit, comprendre la manière dans \emph{Kevoree-c} a été écrit pour pouvoir «lier» les parties de code au méta-modèle. De manière, générale pour implémenter les paradigmes nécessaires tels que détaillés dans la section \ref{kmfcpp} en optimisant la taille du binaire produit l'utilisation de pointeurs sur variables et sur fonctions est primordiale.
+
+\subsubsection{Construction d'une classe}
+
+Une classe du méta-modèle est représenté par un fichier \texttt{.h} permettant d'exposer des informations au reste du compilateur et un fichier \texttt{.c} contenant entre autre l'implémentation des méthodes métiers.
+
+Une classe \emph{C} est donc composée de :
+\begin{itemize}
+\item une \texttt{struct} pour stocker tous les attributs,
+\item une autre \texttt{struct} représentant une \emph{Table Virtuelle}. Elle contient toutes les fonctions que la classe est censée posséder sous forme de pointeurs sur fonctions.
+\end{itemize}
+
+La \texttt{struct} des attributs possède un pointeur sur la \texttt{struct} représentant la table virtuelle, de cette manière elle peut représenter la classe et pour une question de clarté, porte son nom.
+
+La contrainte est de connaître la taille de chaque attribut au moment de la compilation. Les types primitifs ne posent pas de problèmes pour avoir un équivalent en \emph{C}, les relations unaires sont représentés par un pointeur sur la \texttt{struct} des attributs de la classe voulue. En revanche les relations multiples du méta-modèle du type \texttt{0-*} produirait un tableau de taille variable, la solution est de gérer cette mémoire de façon dynamique. Cette préoccupation a déjà été résolue dans \emph{Kevoree-C} en développant la structure de données \texttt{map\_t}.
+
+\subsubsection{Gestion de l'héritage et du polymorphisme}
+
+
+L'annexe \ref{dico-struct} en page \pageref{dico-struct} résume l'héritage des attributs, leur typage, la gestion de la table virtuelle et des déclarations des signatures de fonction.
 
 \subsubsection{Générer des tests unitaires}
 
