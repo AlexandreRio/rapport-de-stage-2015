@@ -261,14 +261,20 @@ Des fichiers lanceurs, contenant une méthode \texttt{main}, sont également cop
 D'autres fichiers sont nécessaires à la compilation du projet. La compilation est assistée par \emph{cmake}\footnote{http://www.cmake.org/} pour gérer facilement la production de différents exécutables : un pour chaque fichier contenant une méthode \texttt{main}, un pour lancer la suite de tests. Cmake permet de n'inclure les tests que dans l'exécutable lançant les tests.
 
 % Voir si ça sert de conclusion
-\section{Avancement, limites et avenir}
+\section{Avancement et avenir}
 
 La réalisation d'un compilateur est une tâche longue et compliquée, la génération de code implique une confiance dans le générateur, c'est pourquoi il doit être le plus lisible possible. Tant dans sa représentation intermédiaire que dans sa manière de générer du code.
 
-%avancement: ce qu'il reste à faire,
+À la rédaction de ce rapport, soit 3 semaines avant la fin du stage :
+\begin{itemize}
+\item le désérialiseur est partiellement implémenté, seul reste la gestion des liens \texttt{1-1} entre les classes,
+\item l'intégration des outils de comparaison et d'adaptation développés pour \emph{Kevoree-C} reste à faire
+\end{itemize}
 
-% ce qui peut être mieux fait
-, les quelques cas ad-hoc
+Si \emph{kmfc} génère du code \emph{C} à partir d'un méta-modèle, certains cas sont ad-hoc au méta-modèle \emph{Kevoree}. Ces cas ont été documentés et expliqués directement dans le code source sous forme de commentaires.
+
+La structure de \emph{kmf} permet de facilement ajouter en retirer des méthodes à générer. Il est donc possible de rapidement tester un nouveau firmware.
+
 
 %tout ce qu'on peut faire ! c'est super !
 
