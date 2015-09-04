@@ -3,3 +3,30 @@
 \addcontentsline{toc}{section}{Conclusion}
 
 % la structure en compilateur permet de facilement tester des modifications, même majeures, on peut envisager implémenter KMF 6? avec les times tree, biblio des 2 papiers, si possible
+
+\subsection*{Avancement}
+\phantomsection
+\addcontentsline{toc}{subsection}{Avancement}
+La réalisation d'un compilateur est une tâche longue et compliquée, la génération de code implique une confiance dans le générateur, c'est pourquoi il doit être le plus lisible possible. Tant dans sa représentation intermédiaire que dans sa manière de générer du code.
+
+À la rédaction de ce rapport, soit 3 semaines avant la fin du stage :
+\begin{itemize}
+\item le désérialiseur est partiellement implémenté, seul reste la gestion des liens \texttt{1-1} entre les classes,
+\item l'intégration des outils de comparaison et d'adaptation développés pour \emph{Kevoree-C} reste à faire
+\end{itemize}
+
+Si \emph{kmfc} génère du code \emph{C} à partir d'un méta-modèle, certains cas sont ad-hoc au méta-modèle \emph{Kevoree}. Ces cas ont été documentés et expliqués directement dans le code source sous forme de commentaires.
+
+La structure de \emph{kmf} permet de facilement ajouter en retirer des méthodes à générer. Il est donc possible de rapidement tester un nouveau firmware que l'on peut déployer directement sur le testbed.
+
+En plus de pouvoir expérimenter des modifications sur le méta-modèle \emph{Kevoree} et obtenir immédiatement un le code \emph{C} correspondant \emph{kmfc} permet également d'expérimenter des représentations de données ou d'autres manières d'implémenter le \emph{model@runtime} en ne modifiant qu'une partie minime dans code source.
+%tout ce qu'on peut faire ! c'est super !
+
+\subsection*{Bilan}
+\phantomsection
+\addcontentsline{toc}{subsection}{Bilan}
+
+\subsection*{Avenir}
+\phantomsection
+\addcontentsline{toc}{subsection}{Avenir}
+%ce qu'on peut imaginer faire plus facilement
