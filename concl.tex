@@ -2,12 +2,10 @@
 \phantomsection
 \addcontentsline{toc}{section}{Conclusion}
 
-% la structure en compilateur permet de facilement tester des modifications, même majeures, on peut envisager implémenter KMF 6? avec les times tree, biblio des 2 papiers, si possible
-
 \subsection*{Avancement}
 \phantomsection
 \addcontentsline{toc}{subsection}{Avancement}
-La réalisation d'un compilateur est une tâche longue et compliquée, la génération de code implique une confiance dans le générateur, c'est pourquoi il doit être le plus lisible possible. Tant dans sa représentation intermédiaire que dans sa manière de générer du code.
+La réalisation d'un compilateur est une tâche longue et complexe, la génération de code implique une confiance dans le générateur, c'est pourquoi il doit être le plus lisible possible. Tant dans sa représentation intermédiaire que dans sa manière de générer du code.
 
 À la rédaction de ce rapport, soit 3 semaines avant la fin du stage :
 \begin{itemize}
@@ -17,16 +15,22 @@ La réalisation d'un compilateur est une tâche longue et compliquée, la géné
 
 Si \emph{kmfc} génère du code \emph{C} à partir d'un méta-modèle, certains cas sont ad-hoc au méta-modèle \emph{Kevoree}. Ces cas ont été documentés et expliqués directement dans le code source sous forme de commentaires.
 
-La structure de \emph{kmf} permet de facilement ajouter en retirer des méthodes à générer. Il est donc possible de rapidement tester un nouveau firmware que l'on peut déployer directement sur le testbed.
-
-En plus de pouvoir expérimenter des modifications sur le méta-modèle \emph{Kevoree} et obtenir immédiatement un le code \emph{C} correspondant \emph{kmfc} permet également d'expérimenter des représentations de données ou d'autres manières d'implémenter le \emph{model@runtime} en ne modifiant qu'une partie minime dans code source.
-%tout ce qu'on peut faire ! c'est super !
-
 \subsection*{Bilan}
 \phantomsection
 \addcontentsline{toc}{subsection}{Bilan}
 
+Un compilateur fait le lien entre deux langages, dans le cadre de mon stage il s'agissait de lire des méta-modèles pour produire du code \emph{C} destiné à des systèmes embarqués. Bien que le code produit soit lui aussi destiné à être compilé il n'en reste pas moins de très bas niveau et demande de bonnes connaissances tant du langage en lui même que des systèmes exécutant le firmware produit.
+Le passage d'un langage de haut niveau de modélisation à un langage très proche du matériel est une tâche très stimulante. À cela s'ajoute le fait de manipuler plusieurs langages de programmation, celui d'entrée du méta-modèle, celui dans lequel est implémenté le compilateur, \emph{Java}, celui du code généré, \emph{C}, sans oublier les différents outils venant se greffer au projet tels que le moteur de template \emph{Velocity} et \emph{cmake}.
+
+
 \subsection*{Avenir}
 \phantomsection
 \addcontentsline{toc}{subsection}{Avenir}
-%ce qu'on peut imaginer faire plus facilement
+
+La structure de \emph{kmf} permet de facilement ajouter en retirer des méthodes à générer. Il est donc possible de rapidement tester un nouveau firmware que l'on peut déployer directement sur le testbed.
+
+En plus de pouvoir expérimenter des modifications sur le méta-modèle \emph{Kevoree} et obtenir immédiatement un le code \emph{C} correspondant \emph{kmfc} permet également d'expérimenter des représentations de données ou d'autres manières d'implémenter le \emph{model@runtime} en ne modifiant qu'une partie minime du code source.
+
+%on peut envisager implémenter KMF 6? avec les times tree, biblio des 2 papiers, si possible
+
+Dans l'optique d'optimisation il serait possible d'intégrer \emph{kmfc} à un autre outil afin de mesurer l'utilisation de la RAM en fonctionnement et la taille en ROM du firmware produit.
