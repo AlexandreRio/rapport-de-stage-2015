@@ -2,6 +2,8 @@
 
 L'Internet des objets, abrégé en IoT, ou Cyber Physical Systems est un réseau non pas composé d'ordinateurs ou de serveurs mais de nombreux composants bien plus petits par leurs tailles et limités par leurs caractéristiques.
 
+Si on peut considérer qu'un serveur moyen possède un processeur au minimum quad-core cadencé à 3.5GHz, 16Go de RAM et plusieurs To de stockage disque les nœuds principalement utilisés pour les expériences, nommés M3, sont sur une architecture ARM, leur processeur est mono-core et cadencé à 72MHz, ils possèdent 64kB de RAM et 16MB de ROM.
+
 Ce nouveau type de réseau apporte de nouvelles contraintes pour le développement de logiciel en particulier.
 
 Ces contraintes vont de la limitation de la puissance de calcul, du stockage limité, de la durée de vie de la batterie et jusqu'à la complexité de gestion d'un réseau distribué.
@@ -9,8 +11,6 @@ Ces contraintes vont de la limitation de la puissance de calcul, du stockage lim
 \section{L'environnement Contiki}
 
 Les limites physiques des nœuds composant les réseaux étudiés font qu'un système d'exploitation spécifique doit être utilisé en lieu et place du classique GNU/Linux.
-
-Les nœuds principalement utilisés pour les expériences sont des M3, globalement les nœuds sont sur une architecture ARM, le processeur est cadencé à 72MHz, possède 64kB de RAM et 16MB de ROM.
 
 Ces nœuds sont également équipés de différents capteurs tels que:
 \begin{itemize}
