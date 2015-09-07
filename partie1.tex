@@ -6,7 +6,14 @@ Ce nouveau type de réseau apporte de nouvelles contraintes pour le développeme
 
 Ces contraintes vont de la limitation de la puissance de calcul, du stockage limité, de la durée de vie de la batterie et jusqu'à la complexité de gestion d'un réseau distribué.
 
-Si on peut considérer qu'un serveur moyen possède un processeur au minimum quad-core cadencé à 3.5GHz, 16Go de RAM et plusieurs To de stockage disque les nœuds principalement utilisés pour les expériences, nommés M3, sont sur une architecture ARM, leur processeur est un mono-core cadencé à 72MHz, ils possèdent 64kB de RAM et 16MB de ROM.
+Un serveur moyen possède un processeur au minimum quad-core cadencé à 3.5GHz, 16Go de RAM et plusieurs To de stockage disque, les nœuds principalement utilisés pour les expériences, nommés M3, sont sur une architecture ARM, leur processeur est un mono-core cadencé à 72MHz, ils possèdent 64kB de RAM et 16MB de ROM. Une vue détaillée d'un nœud est en Figure \ref{m3}.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{images/m3opennode.png}
+\caption{Vue détaillée d'un nœud M3}
+\label{m3}
+\end{figure}
 
 \section{L'environnement Contiki}
 
@@ -21,12 +28,6 @@ Ces nœuds sont également équipés de différents capteurs tels que:
 \item un gyromètre
 \end{itemize}
 
-\begin{figure}[ht!]
-\centering
-\includegraphics[width=90mm]{images/m3opennode.png}
-\caption{Vue détaillée d'un nœud M3}
-\end{figure}
-
 Ces capteurs sont la source des données extérieures et la raison de déployer des CPS.
 
 \subsection{Réseau de nœuds}
@@ -37,9 +38,9 @@ Ici le réseau est de type \emph{mesh}, c'est à dire qu'un nœud est connecté 
 
 \begin{figure}[ht!]
 \centering
-\label{mesh-network}
 \includegraphics[scale=0.3]{images/mesh-network.png}
 \caption{Topologie d'un réseau mesh, le border routeur peut potentiellement être n'importe lequel de ces nœuds}
+\label{mesh-network}
 \end{figure}
 
 De cette manière pour récupérer du contenu sur internet un nœud peut avoir besoin d'effectuer plusieurs bonds. Également la connexion entre nœuds n'est pas filière mais par ondes radio, réduire au maximum les communications entre nœuds est donc un enjeu de gain de temps puisque les débits de communication sont très faible et de batterie puisque qu'une communication peut impacter tout un réseau dans certains structures.
@@ -52,7 +53,7 @@ Dans notre cas ces limites sont dues au langage de développement, le langage C,
 
 Bien que possible sur un environnement \emph{Contiki} l'allocation dynamique de mémoire ne doit pas se faire en utilisant le classique \emph{malloc}. En effet ce dernier gère mal la fragmentation de la mémoire. Pour palier à cela \emph{Contiki} met à disposition des développeurs d'autres méthodes telles que \emph{memb} et \emph{mmem}.\footnote{https://github.com/contiki-os/contiki/wiki/Memory-allocation}
 
-Pour rester proportionné à l'espace disque et à la puissance de calcul des nœuds \emph{Contiki} utilise en système de fichiers spécifique nommé \emph{Coffee} qui est une  implémentation du \emph{Contiki File System}\footnote{https://github.com/contiki-os/contiki/wiki/File-systems}, CFS. Ce dernier empêche l'utilisation des fonctions habituelles de gestion d'accès disque telle que \emph{fopen}.
+Pour rester proportionné à l'espace disque et à la puissance de calcul des nœuds \emph{Contiki} utilise en système de fichiers spécifique nommé \emph{Coffee} qui est une  implémentation du \emph{Contiki File System}\footnote{https://github.com/contiki-os/contiki/wiki/File-systems}. Ce dernier empêche l'utilisation des fonctions habituelles de gestion d'accès disque telle que \emph{fopen}.
 
 \section{Testbed FIT IoT-lab}
 

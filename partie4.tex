@@ -12,9 +12,9 @@ Il est par exemple évident que le code source du générateur de code doit priv
 
 \subsection{\label{mm-kevoree}Méta-modèle \emph{Kevoree}}
 
-Le méta-modèle de \emph{Kevoree} peut être représenté de la même manière qu'un méta-modèle \emph{EMF}, on peut donc utiliser \emph{Eclipse}\cite{eclipse} et en particulier sa version \emph{Eclipse Modeling Tools}\footnote{http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/marsr} pour l'afficher. 
+Le méta-modèle de \emph{Kevoree} peut être représenté de la même manière qu'un méta-modèle \emph{EMF}, \emph{Eclipse}\cite{eclipse} et en particulier sa version \emph{Eclipse Modeling Tools}\footnote{http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/marsr} peut être utilisé pour l'afficher. 
 
-On peut voir sur l'extrait de diagramme en Figure \ref{kevoree-cd}, page \pageref{kevoree-cd} et en Annexe \ref{kevoree-full-cd} que les classes possèdent généralement peu d'attributs primitifs. On peut également remarquer que de nombreuses classes implémentent l'interface \emph{NamedElement} et obtiennent donc un attribut \emph{name} et que toutes les classes sont référencées directement ou indirectement par la classe \emph{ContainerRoot}.
+L'extrait de diagramme en Figure \ref{kevoree-cd}, page \pageref{kevoree-cd} et l'Annexe \ref{kevoree-full-cd} montrent que les classes possèdent généralement peu d'attributs primitifs. Ils permettent également de remarquer que de nombreuses classes implémentent l'interface \emph{NamedElement} et obtiennent donc un attribut \emph{name} et que toutes les classes sont référencées directement ou indirectement par la classe \emph{ContainerRoot}.
 
 \begin{figure}[ht!]
 \centering
@@ -117,9 +117,10 @@ La représentation intermédiaire permet de séparer les préoccupations et offr
 
 Parmi ces avantages, les suivants peuvent nous concerner :
 \begin{itemize}
-\item on peut facilement corrigé ou corriger le modèle est lu ou comment le code \emph{C} est généré,
+\item il est plus aisé de corriger ou comment le modèle est lu ou comment le code \emph{C} est généré,
 \item l'optimisation s'effectuera sur la représentation intermédiaire et ne sera pas dépendante des formats lus et produits,
-\item on peut imaginer facilement pouvoir ou produire différents types de code ou lire différents formats de méta-modèle.
+\item lire un nouveau format de méta-modèle n'impacte qu'au maximum la moitié du code,
+\item de même que cibler un nouveau langage ou une variante de \emph{C}
 \end{itemize}
 
 En plus d'un enseignement de Compilation suivi à l'\univname je me suis documenté\cite{freeman2004head}, \cite{Appel2003MCI599718} durant la rédaction de ce compilateur.
@@ -196,7 +197,8 @@ const struct at NodeNetwork_Attr[NodeNetwork_NB_ATTR] = {
 };
 \end{lstlisting}
 
-L'intérêt est de n'écrire le nom de l'attribut qu'une fois. On lui associe un pointeur de fonctions à appeler lorsque cette attribut est rencontré et deux types énumérés pour définir un contexte, le premier définit où on se trouve, il identifie la classe à laquelle l'attribut appartient, le second le type que l'on doit lire. Il est utile que dans le cas des liens multiples.
+L'intérêt est de n'écrire le nom de l'attribut qu'une fois.
+Un pointeur de fonctions lui est associé et est appelé lorsque cet attribut est rencontré ainsi que deux types énumérés pour définir un contexte, le premier identifie la classe à laquelle l'attribut appartient, le second le type de l'objet à lire s'il s'agit d'un lien multiple.
 
 Les mécanismes de comparaison et d'adaptation ne représentent pas la partie critique de \emph{Kevoree-C}, leurs algorithmes seront donc repris et incorporés à \emph{kmfc}.
 

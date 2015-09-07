@@ -23,7 +23,8 @@ Pour vite avoir une idée du coût mémoire d'Antlr j'ai utilisé une simple gra
 Malheureusement même avec une grammaire reconnaissant uniquement un fichier \emph{JSON} et n'effectuant aucune action le coût mémoire est trop important. Sans compter le poids du parser généré l'ensemble des fichiers à inclure pour le faire fonctionner pèse déjà plus de $400Kb$.
 
 \subsection{Flex et Bison}
-Quand on parle de générateur de parser on pense très souvent à \emph{Flex}\cite{flex}, pour l'analyse lexicale et à \emph{Bison}\cite{bison} pour l'analyse syntaxique
+
+Les outils de génération de parser les plus connus sont : \emph{Flex}\cite{flex}, pour l'analyse lexicale et \emph{Bison}\cite{bison} pour l'analyse syntaxique
 
 Ensemble ils peuvent produire du code \emph{C} de taille cette fois bien plus raisonnable. En suivant la même démarche que pour AntlrV3 j'ai d'abord créé un parser pour uniquement reconnaître la syntaxe JSON.
 
@@ -35,7 +36,7 @@ Le parser lit son fichier d'entrée à l'aide des méthodes \emph{fopen} et \emp
 
 \subsubsection{Portage et tableaux}
 
-Réutiliser des parties du code généré c'est également avéré être une tâche impossible, pour les mêmes raisons que précédemment. En écrivant une lecture du disque propre à \emph{Contiki} et en utilisant le code du traitement produit par \emph{Flex} et \emph{Bison} on obtient un programme que l'on peut compiler mais qui produit une erreur au moment de l'édition des liens due à une incompatibilité dans la \emph{libc} de \emph{Contiki}
+Réutiliser des parties du code généré c'est également avéré être une tâche impossible, pour les mêmes raisons que précédemment. En écrivant une lecture du disque propre à \emph{Contiki} et en utilisant le code du traitement produit par \emph{Flex} et \emph{Bison} le programme résultant peut être compilé mais produit une erreur au moment de l'édition des liens due à une incompatibilité dans la \emph{libc} de \emph{Contiki}
 
 Le traitement de ce genre étant trop chronophage j'ai décidé de ne pas utiliser d'outils de générations de code.
 
