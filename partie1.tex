@@ -6,7 +6,7 @@ Ce nouveau type de réseau apporte de nouvelles difficultés pour le développem
 
 Ces difficultés vont de la limitation de la puissance de calcul, du stockage limité, de la durée de vie de la batterie et jusqu'à la complexité de gestion d'un réseau distribué.
 
-Un serveur standard actuel possède un processeur au minimum quad-core cadencé à 3.5GHz, 16Go de RAM et plusieurs To de stockage disque, les nœuds principalement utilisés pour les expériences, nommés M3, sont sur une architecture ARM, leur processeur est un mono-core cadencé à 72MHz, ils possèdent 64kB de RAM et 16MB de ROM. Une vue détaillée d'un nœud est en Figure \ref{m3}.
+Un serveur standard actuel possède un processeur au minimum quad-core cadencé à 3.5GHz, 16Go de RAM et plusieurs To de stockage disque, les nœuds principalement utilisés pour les expériences, nommés M3, sont sur une architecture ARM, leur processeur est un mono-core cadencé à 72MHz, ils possèdent 64kB de RAM, soit et 16MB de ROM. Une vue détaillée d'un nœud est en Figure \ref{m3}. Outre la différence d'archicture, 64bits pour serveur et 32bits pour un nœud M3 le rapport entre les deux tailles d'espace RAM est de l'ordre de $10^{6}$.
 
 \begin{figure}[ht!]
 \centering
@@ -19,7 +19,7 @@ Un serveur standard actuel possède un processeur au minimum quad-core cadencé 
 
 De par ces différences le développement logiciel est radicalement différent de ce que l'on peut trouver lorsque l'on cible un ordinateur «classique».
 
-Dans notre cas ces limites sont dues au langage de développement, le langage C, qui n'est pas compilé pour utiliser la \emph{libc} standard, non disponible sur l'environnement \emph{Contiki}. Cette restriction, entre autre, empêche l'utilisation de générateur de code.
+Dans notre cas ces limites sont dues au langage de développement, le langage C, qui n'est pas compilé pour utiliser la \emph{libc} standard, non disponible sur l'environnement \emph{Contiki}. Cette restriction, entre autre, empêche l'utilisation de générateur de code standard.
 
 Bien que possible sur un environnement \emph{Contiki} l'allocation dynamique de mémoire ne doit pas se faire en utilisant le classique \emph{malloc}. En effet ce dernier gère mal la fragmentation de la mémoire. Pour palier à cela \emph{Contiki} met à disposition des développeurs d'autres méthodes telles que \emph{memb} et \emph{mmem}.\footnote{https://github.com/contiki-os/contiki/wiki/Memory-allocation}
 
@@ -27,7 +27,7 @@ Pour rester proportionné à l'espace disque et à la puissance de calcul des n�
 
 \subsection{L'environnement Contiki}
 
-Les limites physiques des nœuds composant les réseaux étudiés font qu'un système d'exploitation spécifique doit être utilisé en lieu et place du classique GNU/Linux.
+Les limites physiques des nœuds composant les réseaux étudiés font qu'un système d'exploitation spécifique doit être utilisé en lieu et place du classique GNU/Linux. Le système utilisé est \emph{Contiki}\cite{contiki}.
 
 Ces nœuds sont également équipés de différents capteurs tels que:
 \begin{itemize}
@@ -48,22 +48,22 @@ Ici le réseau est de type \emph{mesh}, c'est à dire qu'un nœud est connecté 
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[scale=0.3]{images/mesh-network.png}
-\caption{Topologie d'un réseau mesh, le border routeur peut potentiellement être n'importe lequel de ces nœuds}
+\includegraphics[scale=0.6]{images/mesh.pdf}
+\caption{Topologie d'un réseau mesh, ici le nœud n1 est le border routeur, il est directement connecté à Internet}
 \label{mesh-network}
 \end{figure}
 
-De cette manière pour récupérer du contenu sur internet un nœud peut avoir besoin d'effectuer plusieurs bonds. Également la connexion entre nœuds n'est pas filière mais par ondes radio, réduire au maximum les communications entre nœuds est donc un enjeu de gain de temps puisque les débits de communication sont très faible et de batterie puisque qu'une communication peut impacter tout un réseau dans certains structures.
+De cette manière pour récupérer du contenu sur internet un nœud peut avoir besoin d'effectuer plusieurs bonds. Également la connexion entre nœuds n'est pas filaire mais par ondes radio, réduire au maximum les communications entre nœuds est donc un enjeu de gain de temps puisque les débits de communication sont très faible et de batterie puisque qu'une communication peut impacter tout un réseau dans certains structures.
 
-
-
-\section{Testbed FIT IoT-lab}
+\subsection{Testbed FIT IoT-lab}
 
 FIT est un projet financé par divers organismes de l'enseignement supérieurs et de la recherche afin de mettre à disposition des entreprises et des chercheurs des structures pour les aider dans leurs travaux.
 
 IoT-lab\footnote{https://www.iot-lab.info/} est une infrastructure permettant l'accès à différents sites en France hébergeant du matériel dédié à l'Internet des Objets.
 
 FIT permet l'accès à plus de 2700 nœuds répartis sur 7 différents testbed tel qu'à Rennes, Grenoble ou Rocquencourt. Les testbeds proposent jusqu'à 3 architectures différentes, dont des \emph{m3}.
+
+Ce grand nombre de nœuds disponibles rends possible des expériences à grande échelle dans le monde de l'IoT.
 
 Voir annexe \ref{iot-lab} en page \pageref{iot-lab} pour la distribution détaillée des différents nœuds.
 
@@ -77,7 +77,7 @@ Une fois des nœuds réservés et obtenus il est possible d'y déployer un nouve
 
 Le développement de réseaux distribués de machines de plus en plus complexes a amené la volonté et le besoin de pouvoir les reconfigurer plus aisément. L'intérêt peut être de mettre à jour un module fonctionnant sur une machine tout en minimisant le temps durant lequel le module ne sera pas fonctionnel.
 
-Pour cela le paradigme du \emph{model@runtime} utilise un modèle servant à définir l'architecture détaillée d'un réseau à un instant \emph{t}.
+Pour cela le paradigme du \emph{model@runtime} utilise un modèle servant à définir l'architecture détaillée d'un réseau à un instant \emph{t}. Ce modèle permet également de déployer ou de reconfigurer un système pendant son exécution.
 
 Cette approche fonctionne sur des réseaux d'ordinateurs et de serveurs \cite{fouquet} et l'objectif de la thèse de \paco est de prouver que cette approche fonctionne également pour l'Internet des Objets.
 
