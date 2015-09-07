@@ -12,7 +12,7 @@ Il est par exemple évident que le code source du générateur de code doit priv
 
 \subsection{\label{mm-kevoree}Méta-modèle \emph{Kevoree}}
 
-Le méta-modèle de \emph{Kevoree} peut être représenté de la même manière qu'un méta-modèle \emph{EMF}, \emph{Eclipse}\cite{eclipse} et en particulier sa version \emph{Eclipse Modeling Tools}\footnote{http://www.eclipse.org/downloads/packages/eclipse-modeling-tools/marsr} peut être utilisé pour l'afficher. 
+Le méta-modèle de \emph{Kevoree} peut être représenté de la même manière qu'un méta-modèle \emph{EMF}, \emph{Eclipse}\cite{eclipse} et en particulier sa version \emph{Eclipse Modeling Tools}\cite{eclipse-emf} peut être utilisé pour l'afficher. 
 
 L'extrait de diagramme en Figure \ref{kevoree-cd}, page \pageref{kevoree-cd} et l'Annexe \ref{kevoree-full-cd} montrent que les classes possèdent généralement peu d'attributs primitifs. Ils permettent également de remarquer que de nombreuses classes implémentent l'interface \emph{NamedElement} et obtiennent donc un attribut \emph{name} et que toutes les classes sont référencées directement ou indirectement par la classe \emph{ContainerRoot}.
 
@@ -52,7 +52,7 @@ Le langage \emph{C++} permet nativement beaucoup de mécanismes utiles à la rep
 
 Ces fonctionnalités natives font que \emph{kmfcpp} ne génère que peu de code et peut le faire en ne parcourant le méta-modèle qu'une seule fois et en produisant directement le code \emph{C++} équivalent.
 
-Pour générer du code \emph{kmfc} utilise le framework \emph{Velocity}\footnote{https://velocity.apache.org/}, il permet de créer des templates de texte contenant des variables ou des structures de contrôle qui seront évaluées et remplacées lors du parsing du méta-modèle.
+Pour générer du code \emph{kmfc} utilise le framework \emph{Velocity}\cite{velocity}, il permet de créer des templates de texte contenant des variables ou des structures de contrôle qui seront évaluées et remplacées lors du parsing du méta-modèle.
 
 L'utilisation d'un moteur de template permet de séparer la logique algorithmique du générateur du code même généré. La lisibilité en est grandement améliorée.
 
@@ -123,7 +123,7 @@ Parmi ces avantages, les suivants peuvent nous concerner :
 \item de même que cibler un nouveau langage ou une variante de \emph{C}
 \end{itemize}
 
-En plus d'un enseignement de Compilation suivi à l'\univname je me suis documenté\cite{freeman2004head}, \cite{Appel2003MCI599718} durant la rédaction de ce compilateur.
+En plus d'un enseignement de Compilation suivi à l'\univname je me suis documenté\cite{aho2007compilateurs}, \cite{Appel2003MCI599718} durant la rédaction de ce compilateur.
 
 \subsection{Générer une structure de données}
 
@@ -175,7 +175,7 @@ Aucun test n'était réalisé sur \emph{Kevoree-C}.
 
 En plus de la structure de données il faut pouvoir effectuer les actions nécessaires au paradigme du \emph{model@runtime}.
 
-La sérialisation des instances courantes est possible par simple appel à une méthode de la classe \emph{ContainerRoot}, l'appel est ensuite propagé aux objets référencés, comme implémenté dans \emph{Kevoree-C}. Une approche utilisant le patron de conception Visiteur\footnote{https://fr.wikipedia.org/wiki/Visiteur\_(patron\_de\_conception)} a été implémenté mais le format JSON demande un traitement particulier pour les éléments en début et fin de liste alors que Visiteur demande à ce que chaque objet effectue son action indépendamment. Par exemple une liste comment par un \texttt{[}, finit par \texttt{]} et chaque élément, sauf le dernier, est suivi d'une virgule.
+La sérialisation des instances courantes est possible par simple appel à une méthode de la classe \emph{ContainerRoot}, l'appel est ensuite propagé aux objets référencés, comme implémenté dans \emph{Kevoree-C}. Une approche utilisant le patron de conception Visiteur\cite{freeman2004head} a été implémenté mais le format JSON demande un traitement particulier pour les éléments en début et fin de liste alors que Visiteur demande à ce que chaque objet effectue son action indépendamment. Par exemple une liste comment par un \texttt{[}, finit par \texttt{]} et chaque élément, sauf le dernier, est suivi d'une virgule.
 
 La désérialisation est pensée de manière totalement différente de celle implémentée dans \emph{Kevoree-C} pour palier à ces défauts, voir section \ref{}. Quelques fonctions génériques telles que \texttt{parseObject} et \texttt{parseArray} sont appelées en fonction du contexte pour récupérer les informations voulues du fichier JSON. Le contexte, les attributs attendus et la hiérarchie à parcourir, sont définis par un ensemble de tables tel que le Listing \ref{deserial}.
 
@@ -208,4 +208,4 @@ Pour avoir un projet complet et fonctionnel d'autres fichiers doivent également
 
 Des fichiers lanceurs, contenant une méthode \texttt{main}, sont également copiés, il me permette de développer une fonctionnalité d'abord sur quelques classes choisies avant de l'ajouter au compilateur et de gérer l'ensemble des classes couvertes par le méta-modèle.
 
-D'autres fichiers sont nécessaires à la compilation du projet. La compilation est assistée par \emph{cmake}\footnote{http://www.cmake.org/} pour gérer facilement la production de différents exécutables : un pour chaque fichier contenant une méthode \texttt{main}, un pour lancer la suite de tests. Cmake permet de n'inclure les tests que dans l'exécutable lançant les tests.
+D'autres fichiers sont nécessaires à la compilation du projet. La compilation est assistée par \emph{cmake}\cite{cmake} pour gérer facilement la production de différents exécutables : un pour chaque fichier contenant une méthode \texttt{main}, un pour lancer la suite de tests. Cmake permet de n'inclure les tests que dans l'exécutable lançant les tests.

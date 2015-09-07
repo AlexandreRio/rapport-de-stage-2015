@@ -28,9 +28,9 @@ Puisque aucun algorithme de compression de données n'est fourni avec \emph{Cont
 
 L'objectif étant d'avoir le meilleur taux de compression tout en restant le moins demandeur de ressources matérielles, en particulier en mémoire RAM pour pouvoir être exécuté sur les nœuds \emph{M3}.
 
-Les implémentations retenues et étudiées sont \emph{Huffman}, \emph{fastlz}\footnote{http://fastlz.org/} et \emph{lzf} \footnote{http://oldhome.schmorp.de/marc/liblzf.html}.
+Les implémentations retenues et étudiées sont \emph{Huffman}, \emph{fastlz}\cite{fastlz} et \emph{lzf}\cite{liblzf}.
 
-Les résultats ont été obtenus en utilisant l'outil \emph{Massif}\footnote{http://valgrind.org/docs/manual/ms-manual.html} de la suite d'outils Valgrind. \emph{Massif} permet de mesurer l'utilisation de différentes zones mémoire lors de l'exécution d'un programme. Par défaut seul l'utilisation du tas est mesuré mais la pile peut également l'être après configuration. Les fichiers de données produits sont binaires mais peuvent être visualisés à l'aide de l'outil \emph{msprint} fourni avec \emph{Massif}.
+Les résultats ont été obtenus en utilisant l'outil \emph{Massif}\cite{massif} de la suite d'outils Valgrind. \emph{Massif} permet de mesurer l'utilisation de différentes zones mémoire lors de l'exécution d'un programme. Par défaut seul l'utilisation du tas est mesuré mais la pile peut également l'être après configuration. Les fichiers de données produits sont binaires mais peuvent être visualisés à l'aide de l'outil \emph{msprint} fourni avec \emph{Massif}.
 
 Les mesures étant faites sur un ordinateur classique d'architecture 64bit et non sur l'environnement de production la compilation a été réalisée en 32bit pour réduire la taille des adresses de pointeur manipulées et ainsi avoir des résultats plus fiables. Tous les algorithmes ont été utilisés en compression et en décompression sur plusieurs modèles différents représentatifs de ceux utilisés lors des expériences.
 
