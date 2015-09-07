@@ -1,12 +1,12 @@
 \section{L'Internet des Objets}
 
-L'Internet des objets, abrégé en IoT, ou Cyber Physical Systems est un réseau non pas composé d'ordinateurs ou de serveurs mais de nombreux composants bien plus petits par leurs tailles et limités par leurs caractéristiques.
+L'Internet des objets, abrégé en IoT, ou Cyber Physical Systems est un réseau non pas composé d'ordinateurs ou de serveurs mais de nombreux composants bien plus petits par leurs tailles et limités en ressources.
 
-Ce nouveau type de réseau apporte de nouvelles contraintes pour le développement de logiciel en particulier.
+Ce nouveau type de réseau apporte de nouvelles difficultés pour le développement de logiciel en particulier.
 
-Ces contraintes vont de la limitation de la puissance de calcul, du stockage limité, de la durée de vie de la batterie et jusqu'à la complexité de gestion d'un réseau distribué.
+Ces difficultés vont de la limitation de la puissance de calcul, du stockage limité, de la durée de vie de la batterie et jusqu'à la complexité de gestion d'un réseau distribué.
 
-Un serveur moyen possède un processeur au minimum quad-core cadencé à 3.5GHz, 16Go de RAM et plusieurs To de stockage disque, les nœuds principalement utilisés pour les expériences, nommés M3, sont sur une architecture ARM, leur processeur est un mono-core cadencé à 72MHz, ils possèdent 64kB de RAM et 16MB de ROM. Une vue détaillée d'un nœud est en Figure \ref{m3}.
+Un serveur standard actuel possède un processeur au minimum quad-core cadencé à 3.5GHz, 16Go de RAM et plusieurs To de stockage disque, les nœuds principalement utilisés pour les expériences, nommés M3, sont sur une architecture ARM, leur processeur est un mono-core cadencé à 72MHz, ils possèdent 64kB de RAM et 16MB de ROM. Une vue détaillée d'un nœud est en Figure \ref{m3}.
 
 \begin{figure}[ht!]
 \centering
@@ -15,7 +15,17 @@ Un serveur moyen possède un processeur au minimum quad-core cadencé à 3.5GHz,
 \label{m3}
 \end{figure}
 
-\section{L'environnement Contiki}
+\subsection{Principales différences}
+
+De par ces différences le développement logiciel est radicalement différent de ce que l'on peut trouver lorsque l'on cible un ordinateur «classique».
+
+Dans notre cas ces limites sont dues au langage de développement, le langage C, qui n'est pas compilé pour utiliser la \emph{libc} standard, non disponible sur l'environnement \emph{Contiki}. Cette restriction, entre autre, empêche l'utilisation de générateur de code.
+
+Bien que possible sur un environnement \emph{Contiki} l'allocation dynamique de mémoire ne doit pas se faire en utilisant le classique \emph{malloc}. En effet ce dernier gère mal la fragmentation de la mémoire. Pour palier à cela \emph{Contiki} met à disposition des développeurs d'autres méthodes telles que \emph{memb} et \emph{mmem}.\footnote{https://github.com/contiki-os/contiki/wiki/Memory-allocation}
+
+Pour rester proportionné à l'espace disque et à la puissance de calcul des nœuds \emph{Contiki} utilise en système de fichiers spécifique nommé \emph{Coffee} qui est une  implémentation du \emph{Contiki File System}\footnote{https://github.com/contiki-os/contiki/wiki/File-systems}. Ce dernier empêche l'utilisation des fonctions habituelles de gestion d'accès disque telle que \emph{fopen}.
+
+\subsection{L'environnement Contiki}
 
 Les limites physiques des nœuds composant les réseaux étudiés font qu'un système d'exploitation spécifique doit être utilisé en lieu et place du classique GNU/Linux.
 
@@ -45,15 +55,7 @@ Ici le réseau est de type \emph{mesh}, c'est à dire qu'un nœud est connecté 
 
 De cette manière pour récupérer du contenu sur internet un nœud peut avoir besoin d'effectuer plusieurs bonds. Également la connexion entre nœuds n'est pas filière mais par ondes radio, réduire au maximum les communications entre nœuds est donc un enjeu de gain de temps puisque les débits de communication sont très faible et de batterie puisque qu'une communication peut impacter tout un réseau dans certains structures.
 
-\subsection{Principales différences}
 
-De par ces différences le développement logiciel est radicalement différent de ce que l'on peut trouver lorsque l'on cible un ordinateur «classique».
-
-Dans notre cas ces limites sont dues au langage de développement, le langage C, qui n'est pas compilé pour utiliser la \emph{libc} standard, non disponible sur l'environnement \emph{Contiki}. Cette restriction, entre autre, empêche l'utilisation de générateur de code.
-
-Bien que possible sur un environnement \emph{Contiki} l'allocation dynamique de mémoire ne doit pas se faire en utilisant le classique \emph{malloc}. En effet ce dernier gère mal la fragmentation de la mémoire. Pour palier à cela \emph{Contiki} met à disposition des développeurs d'autres méthodes telles que \emph{memb} et \emph{mmem}.\footnote{https://github.com/contiki-os/contiki/wiki/Memory-allocation}
-
-Pour rester proportionné à l'espace disque et à la puissance de calcul des nœuds \emph{Contiki} utilise en système de fichiers spécifique nommé \emph{Coffee} qui est une  implémentation du \emph{Contiki File System}\footnote{https://github.com/contiki-os/contiki/wiki/File-systems}. Ce dernier empêche l'utilisation des fonctions habituelles de gestion d'accès disque telle que \emph{fopen}.
 
 \section{Testbed FIT IoT-lab}
 
