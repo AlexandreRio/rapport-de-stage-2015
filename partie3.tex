@@ -1,4 +1,4 @@
-\section{\label{parser-spécif}Parser spécifique}
+\subsection{\label{parser-spécif}Parser spécifique}
 
 Un des points crucial de \emph{Kevoree-c} est la possibilité de reconstruire un état mémoire depuis un fichier représentant un modèle. Cette phase de dé-serialisation repose sur une partie critique du programme. En effet la version actuelle utilisée pour les expériences, en plus de ne fonctionner qu'avec une version fixe de \emph{KMF}, a été réalisée dans des contraintes de temps forte et ne reconnaît qu'une partie minimale du méta-modèle.
 Le code produit ne suivant pas le patron de conception et pour les raisons énoncées le code source est difficilement maintenable.
@@ -15,14 +15,14 @@ Il devait répondre aux contraintes suivantes:
 
 Mon premier réflexe a été de vouloir utiliser un générateur de parser, de cette manière seule la grammaire aurait été à écrire, le parser en \emph{C} aurait été généré par l'outil.
 
-\subsection{AntlrV3}
+\subsubsection{AntlrV3}
 AntlrV4 est le générateur de parser utilisé pendant le module de compilation d'ESIR2, dans sa version 4 il ne permet pas/plus de générer du \emph{C} c'est pourquoi j'ai testé AntlrV3.
 
 Pour vite avoir une idée du coût mémoire d'Antlr j'ai utilisé une simple grammaire reconnaissant le format JSON\footnote{https://github.com/antlr/grammars-v4/blob/master/json/JSON.g4} en partant d'un exemple de projet \emph{C} pour AntlrV3\footnote{https://github.com/antlr/examples-v3/tree/master/C}.
 
 Malheureusement même avec une grammaire reconnaissant uniquement un fichier \emph{JSON} et n'effectuant aucune action le coût mémoire est trop important. Sans compter le poids du parser généré l'ensemble des fichiers à inclure pour le faire fonctionner pèse déjà plus de $400Kb$.
 
-\subsection{Flex et Bison}
+\subsubsection{Flex et Bison}
 
 Les outils de génération de parser les plus connus sont : \emph{Flex}\cite{flex}, pour l'analyse lexicale et \emph{Bison}\cite{bison} pour l'analyse syntaxique
 
@@ -38,13 +38,13 @@ Le parser lit son fichier d'entrée à l'aide des méthodes \emph{fopen} et \emp
 
 Réutiliser des parties du code généré c'est également avéré être une tâche impossible, pour les mêmes raisons que précédemment. En écrivant une lecture du disque propre à \emph{Contiki} et en utilisant le code du traitement produit par \emph{Flex} et \emph{Bison} le programme résultant peut être compilé mais produit une erreur au moment de l'édition des liens due à une incompatibilité dans la \emph{libc} de \emph{Contiki}
 
-Le traitement de ce genre étant trop chronophage j'ai décidé de ne pas utiliser d'outils de générations de code.
+Le traitement de ce genre d'erreur étant trop chronophage le développement d'une solution sur mesure est plus judicieux.
 
-\subsection{Solution sur mesure}
+\subsubsection{Solution sur mesure}
 
-J'ai donc tenté d'écrire un lexer et un parser prenant en entrée un fichier JSON et créant les instances \emph{C} correspondant.
+J'ai donc commencé à écrire un lexer et un parser prenant en entrée un fichier JSON et créant les instances \emph{C} correspondant.
 
 En manipulant les instances en question, comment sont stockés les attributs, où se situe le code des méthodes, comment se passe l'appel des méthodes et à force d'utiliser \emph{Contiki} j'ai pu commencer à être à l'aise avec cet environnement, ce qui était l'objectif de cette tâche et non la réalisation d'un parser spécifique.
 
 %fusionner une partie avec le paragraphe précédent
-Les nombreux problèmes de mémoire rencontrés dus à l'allocation dynamique particulier de \emph{Contiki} ont fait que la tâche à été abandonné puisqu'un parser générique doit être écrit dans la suite du stage.
+Les nombreux problèmes de mémoire rencontrés dus à l'allocation dynamique de \emph{Contiki} ont fait que la tâche à été abandonnée puisqu'un parser générique doit être écrit dans la suite du stage.

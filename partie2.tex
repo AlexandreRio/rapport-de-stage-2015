@@ -1,5 +1,6 @@
 %\setcounter{section}{0}
-\section{Premier développement sur Contiki}
+\section{Travaux préliminaires}
+\subsection{Mise en place de l'environnement de développement}
 Pour mieux appréhender la variété de l'environnement et des outils la première tâche qui m'a été confiée n'était pas au cœur de ses systèmes. J'ai tout d'abord lu l'article \citep{acostapadilla} pour me familiariser avec cet environnement. 
 
 Les nœuds \emph{m3} étant uniquement capable d'exécuter du code déjà compilé il a fallu que je mette en place un environnement dit de \emph{Cross-compilation}, ou compilation croisée, qui consiste à produire un code binaire exécutable par une machine ayant une architecture différente de celle servant au développement.
@@ -15,15 +16,17 @@ make TARGET=iotlab-m3
 
 Cette compilation produira un firmware contenant \emph{Contiki}, le module courant ainsi que tout autre module marqué en dépendance. Ce firmware pourra directement être flashé sur un nœud \emph{m3}.
 
-\section{Compression des modèles}
+\subsection{Compression des modèles}
 
 Pour pouvoir s'adapter et selon le principe du \emph{model@runtime} chaque nœud d'un réseau IoT doit comparer le nouveau modèle du réseau avec le courant et en déduire s'il doit se modifier. Il est donc nécessaire que le nouveau modèle soit échangé entre tous les nœuds. Dans un soucis de temps de développement et puisque cela n'impacte pas l'idée de \emph{model@runtime} l'implémentation de \emph{kevoree-c} ne compresse pas les modèles avant de les transmettre aux pairs voisins.
+
+La compression permettrait aux nœuds de manipuler des modèles représentant plus d'instance et plus de composant dans un même fichier et donc être capable de gérer des réseaux plus grands.
 
 \subsection{État de l'art}
 
 Puisque aucun algorithme de compression de données n'est fourni avec \emph{Contiki} j'ai d'abord commencé par en chercher implémentés en \emph{C}, recommandés pour les systèmes embarqués et disponibles en sources libres dans des licences permettant leurs réutilisations.
 
-L'objectif étant d'avoir le meilleur taux de compression tout en restant le moins demandeur de ressources matérielles, en particulier en mémoire RAM.
+L'objectif étant d'avoir le meilleur taux de compression tout en restant le moins demandeur de ressources matérielles, en particulier en mémoire RAM pour pouvoir être exécuté sur les nœuds \emph{M3}.
 
 Les implémentations retenues et étudiées sont \emph{Huffman}, \emph{fastlz}\footnote{http://fastlz.org/} et \emph{lzf} \footnote{http://oldhome.schmorp.de/marc/liblzf.html}.
 
@@ -33,31 +36,9 @@ Les mesures étant faites sur un ordinateur classique d'architecture 64bit et no
 
 Les scripts utilisés pour automatiser les mesures et produire les résultats suivants sont disponibles sur Github\footnote{https://github.com/AlexandreRio/embedded-compression-benchmark}.
 
-\subsection{Résultats mesurés}
+Les utilisations de mémoire étant bien trop important, voir Image \ref{comp-memory}, pour notre utilisation en IoT un algorithme de compression spécifique a été développé. De plus réduire manuellement l'utilisation de mémoire des programmes réduit drastiquement leur efficacité.
 
-Le taux de compression $\frac{taille~finale}{taille~initiale}$ moyens de chaque algorithme est mesuré sur un ensemble de fichier 14 fichiers représentant 7 modèles différents. Chaque modèle est représenté par un fichier facilement lisible par l'Homme et par une représentation minimaliste, sans caractère de mise en forme superflu.
-\[
-\begin{array}{lc}
-Algorithme & Taux~de~compression \\
-LZF & 0.174 \\
-Huffman & 0.604 \\
-Fastlz-1 & 0.179 \\
-Fastlz-2 & 0.171 \\
-Table~association & 0.641
-\end{array}
-\]
-
-L'annexe \ref{comp-tabde} en page \pageref{comp-tabde} détaille les tailles avant et après compression pour l'ensemble de ces fichiers.
-
-\begin{figure}[ht!]
-\centering
-\includegraphics[scale=0.4]{images/comp-memory.png}
-\caption{Pic moyen d'utilisation de la RAM en octet en fonction de l'algorithme de compression.}
-\end{figure}
-
-En réduisant la taille des buffers la taux de compression chute
-
-\subsection{Table d'association}
+\subsection{Algorithme spécifique}
 
 Vue qu'aucune implémentation existante ne peut fonctionner sur \emph{Contiki} j'ai développé un programme de compression.
 
@@ -77,3 +58,32 @@ Après avoir résolu les différents bugs liés à l'environnement, tel que le s
 
 % vérifier les liens
 Les sources de la version de compression seule \footnote{https://github.com/AlexandreRio/contiki/tree/usingOldKevoree/examples/compress} et de la compression et transmission \footnote{https://github.com/AlexandreRio/contiki/tree/usingOldKevoree/examples/compress-disseminate} sont disponibles sur Github.
+
+\subsection{Résultats mesurés}
+
+Le taux de compression $\frac{taille~finale}{taille~initiale}$ moyens de chaque algorithme est mesuré sur un ensemble de fichier 14 fichiers représentant 7 modèles différents. Chaque modèle est représenté par un fichier facilement lisible par l'Homme et par une représentation minimaliste, sans caractère de mise en forme superflu.
+\[
+\begin{array}{lc}
+Algorithme & Taux~de~compression \\
+LZF & 0.174 \\
+Huffman & 0.604 \\
+Fastlz-1 & 0.179 \\
+Fastlz-2 & 0.171 \\
+Algorithme~spécifique& 0.641
+\end{array}
+\]
+
+L'annexe \ref{comp-tabde} en page \pageref{comp-tabde} détaille les tailles avant et après compression pour l'ensemble de ces fichiers mais le taux de compression moyen est de $0.641$ tout en ayant une utilisation de mémoire minime. La Figure \ref{comp-memory} montre l'utilisation moyenne de 3Ko de RAM en compression et en décompression.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.4]{images/comp-memory.png}
+\label{comp-memory}
+\caption{Pic moyen d'utilisation de la RAM en octet en fonction de l'algorithme de compression.}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.3]{images/compression.png}
+\caption{Mesure de compression de modèles à l'aide de différents algorithmes}
+\end{figure}
