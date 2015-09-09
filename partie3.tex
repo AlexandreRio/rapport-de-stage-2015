@@ -1,6 +1,6 @@
 \subsection{\label{parser-spécif}Parser spécifique}
 
-Un des points crucial de \emph{Kevoree-c} est la possibilité de reconstruire un état mémoire depuis un fichier représentant un modèle. Cette phase de dé-serialisation repose sur une partie critique du programme. En effet la version actuelle utilisée pour les expériences, en plus de ne fonctionner qu'avec une version fixe de \emph{KMF}, a été réalisée dans des contraintes de temps forte et ne reconnaît qu'une partie minimale du méta-modèle.
+Un point crucial de \emph{Kevoree-c} est la possibilité de reconstruire un état mémoire depuis un fichier représentant un modèle. Cette phase de dé-serialisation repose sur une partie critique du programme. En effet la version actuelle utilisée pour les expériences, en plus de ne fonctionner qu'avec une version fixe de \emph{KMF}, a été réalisée dans des contraintes de temps fortes et ne reconnaît qu'une partie minimale du méta-modèle.
 Le code produit ne suivant pas le patron de conception et pour les raisons énoncées le code source est difficilement maintenable.
 
 Pour palier à ces défauts et mieux comprendre les mécanismes internes de \emph{Kevoree-c} j'ai donc commencé à étudier les possibilités de ré-écriture du dé-serializer.

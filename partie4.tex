@@ -40,7 +40,7 @@ La figure \ref{workfow} en page \pageref{workfow} résume les différentes étap
 
 \subsection{\label{kmfcpp}kmfcpp}
 
-Avant de commencer mon générateur de code \johann et \paco m'ont indiqué de regarder la version \emph{C++}\footnote{https://github.com/kevoree/kmfcpp} de \emph{KMF}. Bien que le langage de destination ne soit pas le même le format du méta-modèle d'entrée est identique, c'est une partie qui peut donc être réutilisée.
+Avant de commencer mon générateur de code \johann~et \paco m'ont indiqué de regarder la version \emph{C++}\footnote{https://github.com/kevoree/kmfcpp} de \emph{KMF}. Bien que le langage de destination ne soit pas le même le format du méta-modèle d'entrée est identique, c'est une partie qui peut donc être réutilisée.
 
 Le langage \emph{C++} permet nativement beaucoup de mécanismes utiles à la représentation d'une telle structure de données, à savoir :
 
@@ -52,7 +52,7 @@ Le langage \emph{C++} permet nativement beaucoup de mécanismes utiles à la rep
 
 Ces fonctionnalités natives font que \emph{kmfcpp} ne génère que peu de code et peut le faire en ne parcourant le méta-modèle qu'une seule fois et en produisant directement le code \emph{C++} équivalent.
 
-Pour générer du code \emph{kmfc} utilise le framework \emph{Velocity}\cite{velocity}, il permet de créer des templates de texte contenant des variables ou des structures de contrôle qui seront évaluées et remplacées lors du parsing du méta-modèle.
+Pour générer du code \emph{kmfcpp} utilise le framework \emph{Velocity}\cite{velocity}, il permet de créer des templates de texte contenant des variables ou des structures de contrôle qui seront évaluées et remplacées lors du parsing du méta-modèle.
 
 L'utilisation d'un moteur de template permet de séparer la logique algorithmique du générateur du code même généré. La lisibilité en est grandement améliorée.
 
@@ -71,7 +71,7 @@ Pour finir, les structures de contrôle permettent de calculer uniquement une li
  captionpos=b,
  otherkeywords={foreach, end, in, include},
  numbers=left,
- caption={Fichier testSource.vm permettant de générer un fichier de test unitaire.}
+ caption={Fichier testSource.vm permettant de générer un fichier de test unitaire dans kmfc.}
 }
 
 \begin{lstlisting}[frame=single, label={velocity}]
